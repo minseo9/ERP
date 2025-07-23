@@ -2,4 +2,5 @@
 
 @theme {
     --color-main: oklch(0.5263 0.245 262.881);
+    --color-gray: oklch(0.7137 0.0192 261.32);
 }
