@@ -23,6 +23,8 @@ function App() {
         ...retirementRoutesData,
     ];
 
+    console.log(routesData);
+
     return (
         <>
             {login && <Header />}

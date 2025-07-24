@@ -1,16 +1,14 @@
-import PayrollPage from "../pages/PayrollPage";
-import PayrollList from "../components/payroll/PayrollList";
-import PayrollManagement from "../components/payroll/PayrollManagement";
-import SalaryTable from "../components/payroll/SalaryTable";
-import AllowanceDeductionManagement from "../components/payroll/AllowanceDeductionManagement";
+import PayrollListPage from "../pages/payroll/PayrollListPage";
+import PayrollManagementPage from "../pages/payroll/PayrollManagementPage";
+import SalaryTablePage from "../pages/payroll/SalaryTablePage";
+import AllowanceDeductionManagementPage from "../pages/payroll/AllowanceDeductionManagementPage";
 
 export const payrollRoutesData = [
-    { element: <PayrollPage />, path: "/payroll" },
-    { element: <PayrollList />, path: "/payroll/list" },
-    { element: <PayrollManagement />, path: "/payroll/management" },
-    { element: <SalaryTable />, path: "/salarytable" },
+    { element: <PayrollListPage />, path: "/payroll/list" },
+    { element: <PayrollManagementPage />, path: "/payroll/management" },
+    { element: <SalaryTablePage />, path: "/salarytable" },
     {
-        element: <AllowanceDeductionManagement />,
+        element: <AllowanceDeductionManagementPage />,
         path: "/allowancededuction",
     },
 ];

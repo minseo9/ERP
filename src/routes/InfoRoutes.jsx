@@ -1,9 +1,7 @@
-import CompanyInfoPage from "../pages/CompanyInfoPage";
-import CompanyInfo from "../components/info/CompanyInfo";
-import DepartmentInfo from "../components/info/DepartmentInfo";
+import CompanyInfoPage from "../pages/info/CompanyInfoPage";
+import DepartmentInfoPage from "../pages/info/DepartmentInfoPage";
 
 export const infoRoutesData = [
-    { element: <CompanyInfoPage />, path: "/info" },
-    { element: <CompanyInfo />, path: "/info/company" },
-    { element: <DepartmentInfo />, path: "/info/department" },
+    { element: <CompanyInfoPage />, path: "/info/company" },
+    { element: <DepartmentInfoPage />, path: "/info/department" },
 ];

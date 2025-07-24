@@ -1,9 +1,9 @@
-import EmployeePage from "../pages/EmployeePage";
-import EmployeeList from "../components/employee/EmployeeList";
-import EmployeeRegisterForm from "../components/employee/EmployeeRegisterForm";
+import EmployeeListPage from "../pages/employee/EmployeeListPage";
+import EmployeeRegisterFormPage from "../pages/employee/EmployeeRegisterFormPage";
+import EmployeeEditFormPage from "../pages/employee/EmployeeEditFormPage";
 
 export const employeeRoutesData = [
-    { element: <EmployeePage />, path: "/employee" },
-    { element: <EmployeeList />, path: "/employee/list" },
-    { element: <EmployeeRegisterForm />, path: "/employee/register" },
+    { element: <EmployeeListPage />, path: "/employee/list" },
+    { element: <EmployeeRegisterFormPage />, path: "/employee/register" },
+    { element: <EmployeeEditFormPage />, path: "/employee/edit" },
 ];

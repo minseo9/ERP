@@ -1,11 +1,9 @@
-import RetirementPage from "../pages/RetirementPage";
-import RetirementForm from "../components/retirement/RetirementForm";
-import RetirementList from "../components/retirement/RetirementList";
-import RetirementEmployeeList from "../components/retirement/RetirementEmployeeList";
+import RetirementFormPage from "../pages/retirement/RetirementFormPage";
+import RetirementListPage from "../pages/retirement/RetirementListPage";
+import RetirementEmployeeListPage from "../pages/retirement/RetirementEmployeeListPage";
 
 export const retirementRoutesData = [
-    { element: <RetirementPage />, path: "/retirement" },
-    { element: <RetirementForm />, path: "/retirement/form" },
-    { element: <RetirementList />, path: "/retirement/list" },
-    { element: <RetirementEmployeeList />, path: "/retirement/employee" },
+    { element: <RetirementFormPage />, path: "/retirement/form" },
+    { element: <RetirementListPage />, path: "/retirement/list" },
+    { element: <RetirementEmployeeListPage />, path: "/retirement/employee" },
 ];
