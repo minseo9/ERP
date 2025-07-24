@@ -23,14 +23,12 @@ function App() {
         ...retirementRoutesData,
     ];
 
-    console.log(routesData);
-
     return (
         <>
             {login && <Header />}
-            <div>
+            <div className="flex p-10">
                 {login && <SideBar />}
-                <main>
+                <main className="ml-10">
                     <Routes>
                         {routesData.map((data) => (
                             <Route element={data.element} path={data.path} />

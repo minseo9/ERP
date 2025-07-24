@@ -4,12 +4,12 @@ const LoginPage = () => {
             <h1 className="text-main text-center text-3xl font-bold">
                 MJ SECURITY
             </h1>
-            <div className="border-gray mt-4 rounded-md border border-solid p-5">
-                <div className="border-gray flex flex-col rounded-md border border-solid">
+            <div className="border-default-gray mt-4 rounded-md border border-solid p-5">
+                <div className="border-default-gray flex flex-col rounded-md border border-solid">
                     <input
                         type="text"
                         placeholder="아이디"
-                        className="border-gray border-b p-3 text-sm"
+                        className="border-default-gray border-b p-3 text-sm"
                     />
                     <input
                         type="password"
