@@ -5,7 +5,7 @@ import exitDoor from "../assets/exit-door-icon.png";
 const Header = () => {
     return (
         <div className="bm border-gray flex border-b">
-            <div className="flex flex-1 items-center justify-between px-5 py-2">
+            <div className="border-gray flex flex-1 items-center justify-between border-r border-solid px-5 py-2">
                 <img
                     src={companyLogo}
                     alt="회사 로고"
@@ -13,7 +13,7 @@ const Header = () => {
                 />
                 <span className="text-xs font-bold">000님</span>
             </div>
-            <div className="flex items-center px-3">
+            <div className="border-gray flex items-center border-r border-solid px-5">
                 <button className="cursor-pointer">
                     <img
                         src={setting}
