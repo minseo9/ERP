@@ -52,13 +52,13 @@ const SideBar = ({ setMenu }) => {
     );
 
     return (
-        <div className="mt-10 w-[200px] text-sm">
+        <div className="w-[200px] text-sm">
             {menuData.map((data, index) => (
                 <div key={index} className="group mb-4 w-full">
                     <div className="menu-category px-2 pb-2">
                         - {data.category}
                     </div>
-                    <div className="mb-5 flex w-[200px] flex-col space-y-2 rounded-sm bg-gray-200 p-4">
+                    <div className="bg-default-gray mb-5 flex w-[200px] flex-col space-y-2 rounded-sm p-4">
                         {data.details.map((d) => (
                             <Link
                                 key={d.to}
