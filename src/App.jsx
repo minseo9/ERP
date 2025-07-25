@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
 import LoginPage from "./pages/LoginPage";
+import MenuLabel from "./components/MenuLabel";
 
 import { infoRoutesData } from "./routes/InfoRoutes";
 import { employeeRoutesData } from "./routes/EmployeeRoutes";
@@ -14,6 +15,10 @@ import { retirementRoutesData } from "./routes/RetirementRoutes";
 
 function App() {
     const [login, setLogin] = useState(true);
+    const [menu, setMenu] = useState({
+        category: "회사정보",
+        detail: "회사 기본 정보",
+    });
     const routesData = [
         { element: <LoginPage />, path: "/" },
         ...infoRoutesData,
@@ -24,19 +29,27 @@ function App() {
     ];
 
     return (
-        <>
+        <div className="min-w-[1500px]">
             {login && <Header />}
-            <div className="flex p-10">
-                {login && <SideBar />}
-                <main className="ml-10">
-                    <Routes>
-                        {routesData.map((data) => (
-                            <Route element={data.element} path={data.path} />
-                        ))}
-                    </Routes>
+            <div className="flex p-12">
+                {login && <SideBar setMenu={setMenu} />}
+                <main className="ml-20 w-full">
+                    <section className="pb-4">
+                        <MenuLabel menu={menu} />
+                    </section>
+                    <section>
+                        <Routes>
+                            {routesData.map((data) => (
+                                <Route
+                                    element={data.element}
+                                    path={data.path}
+                                />
+                            ))}
+                        </Routes>
+                    </section>
                 </main>
             </div>
-        </>
+        </div>
     );
 }
 
