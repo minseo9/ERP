@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-const SideBar = ({ setMenu }) => {
+const SideBar = ({ menu, setMenu }) => {
     const menuData = [
         {
             category: "회사정보",
@@ -44,12 +44,8 @@ const SideBar = ({ setMenu }) => {
             ],
         },
     ];
-    const [selectedCategory, setSelectedCategory] = useState(
-        menuData[0].category,
-    );
-    const [selectedDetail, setSelectedDetail] = useState(
-        menuData[0].details[0].category,
-    );
+    const [selectedCategory, setSelectedCategory] = useState(menu.category);
+    const [selectedDetail, setSelectedDetail] = useState(menu.detail);
 
     return (
         <div className="w-[200px] text-sm">
@@ -63,6 +59,7 @@ const SideBar = ({ setMenu }) => {
                             <Link
                                 key={d.to}
                                 to={d.to}
+                                state={{ category: d.category }}
                                 className={
                                     selectedCategory === data.category &&
                                     selectedDetail === d.category
@@ -76,6 +73,13 @@ const SideBar = ({ setMenu }) => {
                                         category: data.category,
                                         detail: d.category,
                                     });
+                                    sessionStorage.setItem(
+                                        "page",
+                                        JSON.stringify({
+                                            category: data.category,
+                                            detail: d.category,
+                                        }),
+                                    );
                                 }}
                             >
                                 {d.category}

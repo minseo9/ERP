@@ -15,10 +15,15 @@ import { retirementRoutesData } from "./routes/RetirementRoutes";
 
 function App() {
     const [login, setLogin] = useState(true);
-    const [menu, setMenu] = useState({
-        category: "회사정보",
-        detail: "회사 기본 정보",
-    });
+    const savePage = JSON.parse(sessionStorage.getItem("page"));
+    const [menu, setMenu] = useState(
+        savePage
+            ? savePage
+            : {
+                  category: "회사정보",
+                  detail: "회사 기본 정보",
+              },
+    );
     const routesData = [
         { element: <LoginPage />, path: "/" },
         ...infoRoutesData,
@@ -32,7 +37,7 @@ function App() {
         <div className="min-w-[1500px]">
             {login && <Header />}
             <div className="flex p-12">
-                {login && <SideBar setMenu={setMenu} />}
+                {login && <SideBar menu={menu} setMenu={setMenu} />}
                 <main className="ml-20 w-full">
                     <section className="pb-4">
                         <MenuLabel menu={menu} />

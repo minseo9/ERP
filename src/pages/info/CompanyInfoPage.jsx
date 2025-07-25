@@ -1,9 +1,11 @@
+import { useLocation } from "react-router-dom";
+
 import Title from "../../components/Title";
 import Button from "../../components/Button";
-
 import companyLogo from "../../assets/company-logo.png";
 
 const ComPanyInfoPage = () => {
+    const location = useLocation().state.category;
     const companyData = [
         { key: "companyName", label: "회사명", value: "MJ SECURITY" },
         {
@@ -42,7 +44,7 @@ const ComPanyInfoPage = () => {
             </section>
             <section>
                 <div className="mb-4 flex items-center justify-between">
-                    <Title text={"회사 기본 정보"} />
+                    <Title text={location} />
                     <Button text={"수정"} />
                 </div>
                 <div className="grid grid-cols-2 gap-1">
