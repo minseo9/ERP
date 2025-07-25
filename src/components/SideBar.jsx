@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-const SideBar = () => {
+const SideBar = ({ setMenu }) => {
     const menuData = [
         {
             category: "회사정보",
@@ -43,17 +44,40 @@ const SideBar = () => {
             ],
         },
     ];
+    const [selectedCategory, setSelectedCategory] = useState(
+        menuData[0].category,
+    );
+    const [selectedDetail, setSelectedDetail] = useState(
+        menuData[0].details[0].category,
+    );
+
     return (
         <div className="mt-10 w-[200px] text-sm">
             {menuData.map((data, index) => (
-                <div
-                    key={index}
-                    className="group border-default-gray text-default-gray mb-4 w-full border-b"
-                >
-                    <div className="px-2 pb-4">{data.category}</div>
-                    <div className="mb-5 box-border hidden flex-col space-y-2 rounded-sm bg-gray-200 p-4 group-hover:flex">
+                <div key={index} className="group mb-4 w-full">
+                    <div className="menu-category px-2 pb-2">
+                        - {data.category}
+                    </div>
+                    <div className="mb-5 flex w-[200px] flex-col space-y-2 rounded-sm bg-gray-200 p-4">
                         {data.details.map((d) => (
-                            <Link key={d.to} to={d.to} className="text-black">
+                            <Link
+                                key={d.to}
+                                to={d.to}
+                                className={
+                                    selectedCategory === data.category &&
+                                    selectedDetail === d.category
+                                        ? "text-main"
+                                        : "text-black"
+                                }
+                                onClick={() => {
+                                    setSelectedCategory(data.category);
+                                    setSelectedDetail(d.category);
+                                    setMenu({
+                                        category: data.category,
+                                        detail: d.category,
+                                    });
+                                }}
+                            >
                                 {d.category}
                             </Link>
                         ))}
