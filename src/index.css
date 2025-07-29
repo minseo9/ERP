@@ -4,3 +4,7 @@
     --color-main: oklch(0.5263 0.245 262.881);
     --color-default-gray: oklch(0.929 0.005 257.84);
 }
+
+.default-input {
+    @apply border-default-gray h-[30px] rounded-xl border bg-gray-100 text-sm text-gray-500 outline-none;
+}
