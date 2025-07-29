@@ -8,3 +8,15 @@
 .default-input {
     @apply border-default-gray h-[30px] rounded-xl border bg-gray-100 text-sm text-gray-500 outline-none;
 }
+
+.form-input {
+    @apply bg-default-gray h-[28px] w-[350px] rounded-sm px-2 text-sm outline-none;
+}
+
+.form-input-date {
+    @apply bg-default-gray rounded-sm px-2 py-1 text-sm;
+}
+
+.form-input-select {
+    @apply bg-default-gray mt-2 flex items-center gap-2 rounded-sm p-0.5 text-sm;
+}
