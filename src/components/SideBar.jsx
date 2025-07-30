@@ -20,9 +20,9 @@ const SideBar = ({ menu, setMenu }) => {
         {
             category: "근태관리",
             details: [
-                { category: "사원 근태 관리", to: "/attendance/list" },
-                { category: "휴가 신청서 관리", to: "/leave/list" },
-                { category: "휴가 신청서 작성", to: "/leave/form" },
+                { category: "사원 근태 정보", to: "/attendance/list" },
+                { category: "연차 신청 관리", to: "/leave/list" },
+                { category: "연차 신청서 작성", to: "/leave/form" },
                 { category: "나의 근무 현황", to: "/attendance/mystate" },
             ],
         },

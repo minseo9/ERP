@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import MenuLabel from "../../components/MenuLabel";
 import FormFormat from "../../components/FormFormat";
 import Button from "../../components/Button";
-import ListTable from "../../components/ListTable";
+import CheckListTable from "../../components/CheckListTable";
 import EmployeeEditFormModal from "./EmployeeEditFormModal";
 
 const EmployeeListPage = () => {
-    const [page, setPage] = useState(1);
+    const [employeePage, setEmployeePage] = useState(1);
     const [viewEmployeeData, setViewEmployeeData] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
 
@@ -180,12 +180,12 @@ const EmployeeListPage = () => {
     const pageNumber = Math.ceil(employeeData.length / 10);
 
     useEffect(() => {
-        const start = (Number(page) - 1) * 10;
-        const end = Number(page) * 10;
+        const start = (Number(employeePage) - 1) * 10;
+        const end = Number(employeePage) * 10;
         const sliceEmployeeList = employeeData.slice(start, end);
 
         setViewEmployeeData(sliceEmployeeList);
-    }, [page]);
+    }, [employeePage]);
 
     const openModal = () => {
         setModalOpen(true);
@@ -289,34 +289,35 @@ const EmployeeListPage = () => {
                             className="default-input px-3"
                         />
                     </FormFormat>
-
                     <Button text="조회" />
                 </section>
             </section>
-            <hr className="my-5" />
-            <section className="m-2">
+            <hr className="border-default-gray my-5" />
+            <section>
                 <table className="border-default-gray border-collaps w-full border text-sm">
                     <thead className="h-[30px]">
-                        <ListTable list={listLabel} type="true" />
+                        <CheckListTable list={listLabel} type />
                     </thead>
-                    <tbody className="h-[50px]">
+                    <tbody>
                         {viewEmployeeData.map((data) => (
-                            <ListTable key={data[0]} list={data} />
+                            <CheckListTable key={data[0]} list={data} />
                         ))}
                     </tbody>
                 </table>
             </section>
-            <section className="p-2 text-end">
+            <section className="pt-4 text-end">
                 <Button text="수정" clickEvent={openModal} />
             </section>
             <section className="flex cursor-pointer items-center justify-center gap-5 text-sm text-gray-500">
-                {page >= 6 && <button>{"< 이전"}</button>}
+                {employeePage >= 6 && <button>{"< 이전"}</button>}
                 <div className="flex gap-3">
                     {Array.from({ length: 5 }, (_, i) =>
                         pageNumber > i ? (
                             <button
                                 key={i}
-                                className={i + 1 === page ? "text-black" : null}
+                                className={
+                                    i + 1 === employeePage ? "text-black" : null
+                                }
                             >
                                 {i + 1}
                             </button>

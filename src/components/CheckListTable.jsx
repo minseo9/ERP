@@ -1,7 +1,7 @@
-const ListTable = ({ list, type = "false" }) => {
+const CheckListTable = ({ list, type = false }) => {
     return (
         <tr>
-            {type === "false" ? (
+            {type === false ? (
                 <td className="border-default-gray h-[40px] border-r border-b text-center">
                     <input
                         type="checkbox"
@@ -16,7 +16,7 @@ const ListTable = ({ list, type = "false" }) => {
                 <td
                     key={index}
                     className={
-                        type === "true"
+                        type === true
                             ? "bg-default-gray text-center"
                             : "border-default-gray border-r border-b text-center"
                     }
@@ -28,4 +28,4 @@ const ListTable = ({ list, type = "false" }) => {
     );
 };
 
-export default ListTable;
+export default CheckListTable;

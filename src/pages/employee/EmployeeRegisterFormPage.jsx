@@ -38,11 +38,11 @@ const EmployeeRegisterFormPage = () => {
                 </div>
             </section>
             <section className="grid w-[1000px] grid-cols-2 gap-5">
-                <FormFormat label={"이름"} htmlFor={"id"}>
+                <FormFormat label={"이름"} htmlFor={"name"}>
                     <div className="mt-2 flex items-center">
                         <input
                             type="text"
-                            id="id"
+                            id="name"
                             className="form-input h-[28px] w-[350px]"
                         />
                     </div>
@@ -114,7 +114,7 @@ const EmployeeRegisterFormPage = () => {
                     </div>
                 </FormFormat>
                 <FormFormat label={"직급"} htmlFor={"position"}>
-                    <select id="department" className="form-input-select">
+                    <select id="position" className="form-input-select">
                         {positionList.map((data) => (
                             <option value={data} key={data}>
                                 {data}
@@ -123,7 +123,11 @@ const EmployeeRegisterFormPage = () => {
                     </select>
                 </FormFormat>
                 <FormFormat label={"부서"} htmlFor={"department"}>
-                    <select name="" id="position" className="form-input-select">
+                    <select
+                        name=""
+                        id="department"
+                        className="form-input-select"
+                    >
                         {departmentList.map((data) => (
                             <option value={data} key={data}>
                                 {data}
