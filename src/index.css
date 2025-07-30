@@ -10,7 +10,7 @@
 }
 
 .form-input {
-    @apply bg-default-gray h-[28px] w-[350px] rounded-sm px-2 text-sm outline-none;
+    @apply bg-default-gray rounded-sm px-2 text-sm outline-none;
 }
 
 .form-input-date {

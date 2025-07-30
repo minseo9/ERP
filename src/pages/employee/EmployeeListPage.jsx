@@ -4,10 +4,12 @@ import MenuLabel from "../../components/MenuLabel";
 import FormFormat from "../../components/FormFormat";
 import Button from "../../components/Button";
 import ListTable from "../../components/ListTable";
+import EmployeeEditFormModal from "./EmployeeEditFormModal";
 
 const EmployeeListPage = () => {
     const [page, setPage] = useState(1);
     const [viewEmployeeData, setViewEmployeeData] = useState([]);
+    const [modalOpen, setModalOpen] = useState(false);
 
     const positionList = [
         "사원",
@@ -185,6 +187,14 @@ const EmployeeListPage = () => {
         setViewEmployeeData(sliceEmployeeList);
     }, [page]);
 
+    const openModal = () => {
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
+
     return (
         <div>
             <section className="flex flex-col justify-center gap-3">
@@ -297,7 +307,7 @@ const EmployeeListPage = () => {
                 </table>
             </section>
             <section className="p-2 text-end">
-                <Button text="수정" />
+                <Button text="수정" clickEvent={openModal} />
             </section>
             <section className="flex cursor-pointer items-center justify-center gap-5 text-sm text-gray-500">
                 {page >= 6 && <button>{"< 이전"}</button>}
@@ -315,6 +325,10 @@ const EmployeeListPage = () => {
                 </div>
                 {pageNumber > 5 && <button>{"다음 >"}</button>}
             </section>
+            <EmployeeEditFormModal
+                modalOpen={modalOpen}
+                closeModal={closeModal}
+            />
         </div>
     );
 };

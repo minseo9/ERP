@@ -1,6 +1,9 @@
-const Button = ({ text }) => {
+const Button = ({ text, clickEvent }) => {
     return (
-        <button className="bg-default-gray h-[30px] w-[70px] cursor-pointer rounded-2xl text-xs">
+        <button
+            onClick={clickEvent}
+            className="bg-default-gray h-[30px] w-[70px] cursor-pointer rounded-2xl text-xs"
+        >
             {text}
         </button>
     );

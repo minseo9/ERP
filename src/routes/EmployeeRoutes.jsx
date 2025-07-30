@@ -1,9 +1,9 @@
 import EmployeeListPage from "../pages/employee/EmployeeListPage";
 import EmployeeRegisterFormPage from "../pages/employee/EmployeeRegisterFormPage";
-import EmployeeEditFormPage from "../pages/employee/EmployeeEditFormPage";
+import EmployeeEditFormModal from "../pages/employee/EmployeeEditFormModal";
 
 export const employeeRoutesData = [
     { element: <EmployeeListPage />, path: "/employee/list" },
     { element: <EmployeeRegisterFormPage />, path: "/employee/register" },
-    { element: <EmployeeEditFormPage />, path: "/employee/edit" },
+    { element: <EmployeeEditFormModal />, path: "/employee/edit" },
 ];

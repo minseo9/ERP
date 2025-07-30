@@ -40,16 +40,28 @@ const EmployeeRegisterFormPage = () => {
             <section className="grid w-[1000px] grid-cols-2 gap-5">
                 <FormFormat label={"이름"} htmlFor={"id"}>
                     <div className="mt-2 flex items-center">
-                        <input type="text" id="id" className="form-input" />
+                        <input
+                            type="text"
+                            id="id"
+                            className="form-input h-[28px] w-[350px]"
+                        />
                     </div>
                 </FormFormat>
                 <FormFormat label={"사원번호"} htmlFor={"number"}>
                     <div className="mt-2 flex items-center"></div>
-                    <input type="text" id="number" className="form-input" />
+                    <input
+                        type="text"
+                        id="number"
+                        className="form-input h-[28px] w-[350px]"
+                    />
                 </FormFormat>
                 <FormFormat label={"연락처"} htmlFor={"phone"}>
                     <div className="mt-2 flex items-center">
-                        <input type="text" id="phone" className="form-input" />
+                        <input
+                            type="text"
+                            id="phone"
+                            className="form-input h-[28px] w-[350px]"
+                        />
                     </div>
                 </FormFormat>
                 <FormFormat label={"생년월일"} htmlFor={"birthday"}>
@@ -66,13 +78,17 @@ const EmployeeRegisterFormPage = () => {
                         <input
                             type="text"
                             id="address"
-                            className="form-input"
+                            className="form-input h-[28px] w-[350px]"
                         />
                     </div>
                 </FormFormat>
                 <FormFormat label={"이메일"} htmlFor={"email"}>
                     <div className="mt-2 flex items-center">
-                        <input type="text" id="email" className="form-input" />
+                        <input
+                            type="text"
+                            id="email"
+                            className="form-input h-[28px] w-[350px]"
+                        />
                     </div>
                 </FormFormat>
                 <FormFormat label={"성별"} htmlFor={null}>
@@ -98,8 +114,8 @@ const EmployeeRegisterFormPage = () => {
                     </div>
                 </FormFormat>
                 <FormFormat label={"직급"} htmlFor={"position"}>
-                    <select name="" id="position" className="form-input-select">
-                        {departmentList.map((data) => (
+                    <select id="department" className="form-input-select">
+                        {positionList.map((data) => (
                             <option value={data} key={data}>
                                 {data}
                             </option>
@@ -107,8 +123,8 @@ const EmployeeRegisterFormPage = () => {
                     </select>
                 </FormFormat>
                 <FormFormat label={"부서"} htmlFor={"department"}>
-                    <select id="department" className="form-input-select">
-                        {positionList.map((data) => (
+                    <select name="" id="position" className="form-input-select">
+                        {departmentList.map((data) => (
                             <option value={data} key={data}>
                                 {data}
                             </option>
