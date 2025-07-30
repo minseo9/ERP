@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import MenuLabel from "../../components/MenuLabel";
 import FormFormat from "../../components/FormFormat";
@@ -7,6 +7,8 @@ import ListTable from "../../components/ListTable";
 
 const EmployeeListPage = () => {
     const [page, setPage] = useState(1);
+    const [viewEmployeeData, setViewEmployeeData] = useState([]);
+
     const positionList = [
         "사원",
         "주임",
@@ -173,9 +175,19 @@ const EmployeeListPage = () => {
         ],
     ];
 
+    const pageNumber = Math.ceil(employeeData.length / 10);
+
+    useEffect(() => {
+        const start = (Number(page) - 1) * 10;
+        const end = Number(page) * 10;
+        const sliceEmployeeList = employeeData.slice(start, end);
+
+        setViewEmployeeData(sliceEmployeeList);
+    }, [page]);
+
     return (
         <div>
-            <section className="flex flex-col justify-center gap-2">
+            <section className="flex flex-col justify-center gap-3">
                 <section className="flex items-center gap-4">
                     <FormFormat label={"입사일"} htmlFor={"date"}>
                         <input
@@ -234,7 +246,7 @@ const EmployeeListPage = () => {
                         <input
                             type="checkbox"
                             id="state"
-                            className="accent-gray-400"
+                            className="accent-main"
                         />
                     </FormFormat>
                 </section>
@@ -278,7 +290,7 @@ const EmployeeListPage = () => {
                         <ListTable list={listLabel} type="true" />
                     </thead>
                     <tbody className="h-[50px]">
-                        {employeeData.map((data) => (
+                        {viewEmployeeData.map((data) => (
                             <ListTable key={data[0]} list={data} />
                         ))}
                     </tbody>
@@ -287,16 +299,21 @@ const EmployeeListPage = () => {
             <section className="p-2 text-end">
                 <Button text="수정" />
             </section>
-            <section className="flex items-center justify-center gap-5 text-sm text-gray-500">
-                <button>{"< 이전"}</button>
-                <div>
-                    <button className="mr-3">{"1"}</button>
-                    <button className="mr-3">{"2"}</button>
-                    <button className="mr-3">{"3"}</button>
-                    <button className="mr-3">{"4"}</button>
-                    <button>{"5"}</button>
+            <section className="flex cursor-pointer items-center justify-center gap-5 text-sm text-gray-500">
+                {page >= 6 && <button>{"< 이전"}</button>}
+                <div className="flex gap-3">
+                    {Array.from({ length: 5 }, (_, i) =>
+                        pageNumber > i ? (
+                            <button
+                                key={i}
+                                className={i + 1 === page ? "text-black" : null}
+                            >
+                                {i + 1}
+                            </button>
+                        ) : null,
+                    )}
                 </div>
-                <button>{"다음 >"}</button>
+                {pageNumber > 5 && <button>{"다음 >"}</button>}
             </section>
         </div>
     );

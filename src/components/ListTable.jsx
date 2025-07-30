@@ -3,7 +3,11 @@ const ListTable = ({ list, type = "false" }) => {
         <tr>
             {type === "false" ? (
                 <td className="border-default-gray h-[40px] border-r border-b text-center">
-                    <input type="checkbox" />
+                    <input
+                        type="checkbox"
+                        name="check"
+                        className="accent-main"
+                    />
                 </td>
             ) : (
                 <td className="bg-default-gray w-[30px]"></td>
