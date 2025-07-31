@@ -4,6 +4,7 @@ import MenuLabel from "../../components/MenuLabel";
 import FormFormat from "../../components/FormFormat";
 import Button from "../../components/Button";
 import CheckListTable from "../../components/CheckListTable";
+import PageButton from "../../components/PageButton";
 import EmployeeEditFormModal from "./EmployeeEditFormModal";
 
 const EmployeeListPage = () => {
@@ -309,22 +310,7 @@ const EmployeeListPage = () => {
                 <Button text="수정" clickEvent={openModal} />
             </section>
             <section className="flex cursor-pointer items-center justify-center gap-5 text-sm text-gray-500">
-                {employeePage >= 6 && <button>{"< 이전"}</button>}
-                <div className="flex gap-3">
-                    {Array.from({ length: 5 }, (_, i) =>
-                        pageNumber > i ? (
-                            <button
-                                key={i}
-                                className={
-                                    i + 1 === employeePage ? "text-black" : null
-                                }
-                            >
-                                {i + 1}
-                            </button>
-                        ) : null,
-                    )}
-                </div>
-                {pageNumber > 5 && <button>{"다음 >"}</button>}
+                <PageButton page={employeePage} pageNumber={pageNumber} />
             </section>
             <EmployeeEditFormModal
                 modalOpen={modalOpen}

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import FormFormat from "../../components/FormFormat";
 import CheckListTable from "../../components/CheckListTable";
 import Button from "../../components/Button";
+import PageButton from "../../components/PageButton";
 
 const AttendanceListPage = () => {
     const [attendancePage, setAttendancePage] = useState(1);
@@ -266,24 +267,7 @@ const AttendanceListPage = () => {
                 <Button text="수정" />
             </section>
             <section className="flex cursor-pointer items-center justify-center gap-5 text-sm text-gray-500">
-                {attendancePage >= 6 && <button>{"< 이전"}</button>}
-                <div className="flex gap-3">
-                    {Array.from({ length: 5 }, (_, i) =>
-                        pageNumber > i ? (
-                            <button
-                                key={i}
-                                className={
-                                    i + 1 === attendancePage
-                                        ? "text-black"
-                                        : null
-                                }
-                            >
-                                {i + 1}
-                            </button>
-                        ) : null,
-                    )}
-                </div>
-                {pageNumber > 5 && <button>{"다음 >"}</button>}
+                <PageButton page={attendancePage} pageNumber={pageNumber} />
             </section>
         </div>
     );
