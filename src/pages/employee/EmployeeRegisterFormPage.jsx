@@ -1,4 +1,6 @@
-import FormFormat from "../../components/FormFormat";
+import FormFormat from "../../components/input-format/FormFormat";
+import TextInputFormat from "../../components/input-format/TextInputFormat";
+import SelectFormat from "../../components/input-format/SelectFormat";
 import Button from "../../components/Button";
 
 import companyLogo from "../../assets/company-logo.png";
@@ -38,32 +40,24 @@ const EmployeeRegisterFormPage = () => {
                 </div>
             </section>
             <section className="grid w-[1000px] grid-cols-2 gap-5">
-                <FormFormat label={"이름"} htmlFor={"name"}>
-                    <div className="mt-2 flex items-center">
-                        <input
-                            type="text"
-                            id="name"
-                            className="form-input h-[28px] w-[350px]"
-                        />
-                    </div>
-                </FormFormat>
-                <FormFormat label={"사원번호"} htmlFor={"number"}>
-                    <div className="mt-2 flex items-center"></div>
-                    <input
-                        type="text"
-                        id="number"
-                        className="form-input h-[28px] w-[350px]"
-                    />
-                </FormFormat>
-                <FormFormat label={"연락처"} htmlFor={"phone"}>
-                    <div className="mt-2 flex items-center">
-                        <input
-                            type="text"
-                            id="phone"
-                            className="form-input h-[28px] w-[350px]"
-                        />
-                    </div>
-                </FormFormat>
+                <TextInputFormat
+                    label={"이름"}
+                    id={"name"}
+                    style={"form-input h-[28px] w-[350px]"}
+                    isFlex
+                />
+                <TextInputFormat
+                    label={"사원번호"}
+                    id={"number"}
+                    style={"form-input h-[28px] w-[350px]"}
+                    isFlex
+                />
+                <TextInputFormat
+                    label={"연락처"}
+                    id={"phone"}
+                    style={"form-input h-[28px] w-[350px]"}
+                    isFlex
+                />
                 <FormFormat label={"생년월일"} htmlFor={"birthday"}>
                     <div className="mt-2 flex items-center">
                         <input
@@ -73,24 +67,18 @@ const EmployeeRegisterFormPage = () => {
                         />
                     </div>
                 </FormFormat>
-                <FormFormat label={"주소"} htmlFor={"address"}>
-                    <div className="mt-2 flex items-center">
-                        <input
-                            type="text"
-                            id="address"
-                            className="form-input h-[28px] w-[350px]"
-                        />
-                    </div>
-                </FormFormat>
-                <FormFormat label={"이메일"} htmlFor={"email"}>
-                    <div className="mt-2 flex items-center">
-                        <input
-                            type="text"
-                            id="email"
-                            className="form-input h-[28px] w-[350px]"
-                        />
-                    </div>
-                </FormFormat>
+                <TextInputFormat
+                    label={"주소"}
+                    id={"address"}
+                    style={"form-input h-[28px] w-[350px]"}
+                    isFlex
+                />
+                <TextInputFormat
+                    label={"이메일"}
+                    id={"email"}
+                    style={"form-input h-[28px] w-[350px]"}
+                    isFlex
+                />
                 <FormFormat label={"성별"} htmlFor={null}>
                     <div className="accent-main mt-2 flex w-[123px] items-center gap-2 text-sm">
                         <label htmlFor="man">남자</label>
@@ -113,28 +101,18 @@ const EmployeeRegisterFormPage = () => {
                         />
                     </div>
                 </FormFormat>
-                <FormFormat label={"직급"} htmlFor={"position"}>
-                    <select id="position" className="form-input-select">
-                        {positionList.map((data) => (
-                            <option value={data} key={data}>
-                                {data}
-                            </option>
-                        ))}
-                    </select>
-                </FormFormat>
-                <FormFormat label={"부서"} htmlFor={"department"}>
-                    <select
-                        name=""
-                        id="department"
-                        className="form-input-select"
-                    >
-                        {departmentList.map((data) => (
-                            <option value={data} key={data}>
-                                {data}
-                            </option>
-                        ))}
-                    </select>
-                </FormFormat>
+                <SelectFormat
+                    label={"직급"}
+                    id={"position"}
+                    style={"form-input-select"}
+                    list={positionList}
+                />
+                <SelectFormat
+                    label={"부서"}
+                    id={"department"}
+                    style={"form-input-select"}
+                    list={departmentList}
+                />
                 <FormFormat label={"상태"} htmlFor={null}>
                     <div className="accent-main mt-2 flex w-[123px] items-center gap-2 text-sm">
                         <label htmlFor="work">재직</label>

@@ -1,9 +1,10 @@
-import FormFormat from "../../components/FormFormat";
+import FormFormat from "../../components/input-format/FormFormat";
+import TextInputFormat from "../../components/input-format/TextInputFormat";
+import SelectFormat from "../../components/input-format/SelectFormat";
 import Button from "../../components/Button";
 
 import companyLogo from "../../assets/company-logo.png";
 import closeIcon from "../../assets/close-icon.png";
-import cameraIcon from "../../assets/camera-icon.png";
 
 const EmployeeEditFormModal = ({ modalOpen, closeModal }) => {
     if (!modalOpen) return null;
@@ -52,34 +53,25 @@ const EmployeeEditFormModal = ({ modalOpen, closeModal }) => {
                     </div>
                 </section>
                 <section className="mx-auto grid w-fit grid-cols-2 gap-x-10 gap-y-3">
-                    <FormFormat label={"사원번호"} htmlFor={"number"}>
-                        <div className="mt-2 flex items-center">
-                            <input
-                                type="text"
-                                id="number"
-                                className="form-input py-1"
-                                readOnly
-                            />
-                        </div>
-                    </FormFormat>
-                    <FormFormat label={"이름"} htmlFor={"name"}>
-                        <div className="mt-2 flex items-center">
-                            <input
-                                type="text"
-                                id="id"
-                                className="form-input py-1"
-                            />
-                        </div>
-                    </FormFormat>
-                    <FormFormat label={"연락처"} htmlFor={"phone"}>
-                        <div className="mt-2 flex items-center">
-                            <input
-                                type="text"
-                                id="phone"
-                                className="form-input py-1"
-                            />
-                        </div>
-                    </FormFormat>
+                    <TextInputFormat
+                        label={"사원번호"}
+                        id={"number"}
+                        style={"form-input py-1"}
+                        isFlex
+                        isReadOnly
+                    />
+                    <TextInputFormat
+                        label={"이름"}
+                        id={"name"}
+                        style={"form-input py-1"}
+                        isFlex
+                    />
+                    <TextInputFormat
+                        label={"연락처"}
+                        id={"phone"}
+                        style={"form-input py-1"}
+                        isFlex
+                    />
                     <FormFormat label={"생년월일"} htmlFor={"birthday"}>
                         <div className="mt-2 flex items-center">
                             <input
@@ -89,24 +81,18 @@ const EmployeeEditFormModal = ({ modalOpen, closeModal }) => {
                             />
                         </div>
                     </FormFormat>
-                    <FormFormat label={"주소"} htmlFor={"address"}>
-                        <div className="mt-2 flex items-center">
-                            <input
-                                type="text"
-                                id="address"
-                                className="form-input py-1"
-                            />
-                        </div>
-                    </FormFormat>
-                    <FormFormat label={"이메일"} htmlFor={"email"}>
-                        <div className="mt-2 flex items-center">
-                            <input
-                                type="text"
-                                id="email"
-                                className="form-input py-1"
-                            />
-                        </div>
-                    </FormFormat>
+                    <TextInputFormat
+                        label={"주소"}
+                        id={"address"}
+                        style={"form-input py-1"}
+                        isFlex
+                    />
+                    <TextInputFormat
+                        label={"이메일"}
+                        id={"email"}
+                        style={"form-input py-1"}
+                        isFlex
+                    />
                     <FormFormat label={"성별"} htmlFor={"name"}>
                         <div className="accent-main mt-2 flex w-[123px] items-center gap-2 text-sm">
                             <label htmlFor="man">남자</label>
@@ -130,24 +116,18 @@ const EmployeeEditFormModal = ({ modalOpen, closeModal }) => {
                             />
                         </div>
                     </FormFormat>
-                    <FormFormat label={"직급"} htmlFor={"position"}>
-                        <select id="department" className="form-input-select">
-                            {positionList.map((data) => (
-                                <option value={data} key={data}>
-                                    {data}
-                                </option>
-                            ))}
-                        </select>
-                    </FormFormat>
-                    <FormFormat label={"부서"} htmlFor={"department"}>
-                        <select id="position" className="form-input-select">
-                            {departmentList.map((data) => (
-                                <option value={data} key={data}>
-                                    {data}
-                                </option>
-                            ))}
-                        </select>
-                    </FormFormat>
+                    <SelectFormat
+                        label={"직급"}
+                        id={"position"}
+                        style={"form-input-select"}
+                        list={positionList}
+                    />
+                    <SelectFormat
+                        label={"부서"}
+                        id={"department"}
+                        style={"form-input-select"}
+                        list={departmentList}
+                    />
                     <FormFormat label={"상태"} htmlFor={null}>
                         <div className="accent-main mt-2 flex w-[123px] items-center gap-2 text-sm">
                             <label htmlFor="work">재직</label>

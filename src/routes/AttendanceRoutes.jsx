@@ -1,11 +1,11 @@
 import AttendanceListPage from "../pages/attendance/AttendanceListPage";
-import LeaveApplicationListPage from "../pages/attendance/LeaveApplicationListPage";
-import LeaveApplicationFormPage from "../pages/attendance/LeaveApplicationFormPage";
+import AnnualLeaveListPage from "../pages/attendance/AnnualLeaveListPage";
+import AnnualLeaveFormPage from "../pages/attendance/AnnualLeaveFormPage";
 import MyAttendanceStatePage from "../pages/attendance/MyAttendanceStatePage";
 
 export const attendanceRoutesDate = [
     { element: <AttendanceListPage />, path: "/attendance/list" },
-    { element: <LeaveApplicationListPage />, path: "/leave/list" },
-    { element: <LeaveApplicationFormPage />, path: "/leave/form" },
+    { element: <AnnualLeaveListPage />, path: "/leave/list" },
+    { element: <AnnualLeaveFormPage />, path: "/leave/form" },
     { element: <MyAttendanceStatePage />, path: "/attendance/mystate" },
 ];

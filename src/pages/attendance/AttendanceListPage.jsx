@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
-import FormFormat from "../../components/FormFormat";
+import FormFormat from "../../components/input-format/FormFormat";
+import TextInputFormat from "../../components/input-format/TextInputFormat";
+import SelectFormat from "../../components/input-format/SelectFormat";
 import CheckListTable from "../../components/CheckListTable";
 import Button from "../../components/Button";
 import PageButton from "../../components/PageButton";
@@ -9,6 +11,7 @@ const AttendanceListPage = () => {
     const [attendancePage, setAttendancePage] = useState(1);
     const [attendanceData, setAttendanceData] = useState([]);
     const positionList = [
+        "전체",
         "사원",
         "주임",
         "대리",
@@ -18,6 +21,7 @@ const AttendanceListPage = () => {
         "이사",
     ];
     const departmentList = [
+        "전체",
         "보안 사업부",
         "솔루션 사업부",
         "컨설팅 사업부",
@@ -200,54 +204,29 @@ const AttendanceListPage = () => {
                     </FormFormat>
                 </section>
                 <section className="flex gap-4">
-                    <FormFormat label={"사원번호"} htmlFor={"number"}>
-                        <input
-                            type="text"
-                            id="number"
-                            className="default-input px-3"
-                        />
-                    </FormFormat>
-                    <FormFormat label={"이름"} htmlFor={"name"}>
-                        <input
-                            type="text"
-                            id="name"
-                            className="default-input px-3"
-                        />
-                    </FormFormat>
-                    <FormFormat label={"부서"} htmlFor={"department"}>
-                        <select
-                            name=""
-                            id="department"
-                            defaultValue="default"
-                            className="default-input pl-1"
-                        >
-                            <option value="default" disabled hidden>
-                                선택
-                            </option>
-                            {departmentList.map((data) => (
-                                <option value={data} key={data}>
-                                    {data}
-                                </option>
-                            ))}
-                        </select>
-                    </FormFormat>
-                    <FormFormat label={"직급"} htmlFor={"position"}>
-                        <select
-                            name=""
-                            id="position"
-                            defaultValue="default"
-                            className="default-input pl-1"
-                        >
-                            <option value="default" disabled hidden>
-                                선택
-                            </option>
-                            {positionList.map((data) => (
-                                <option value={data} key={data}>
-                                    {data}
-                                </option>
-                            ))}
-                        </select>
-                    </FormFormat>
+                    <TextInputFormat
+                        label={"사원번호"}
+                        id={"number"}
+                        style={"default-input px-3"}
+                    />
+                    <TextInputFormat
+                        label={"이름"}
+                        id={"name"}
+                        style={"default-input px-3"}
+                    />
+                    <SelectFormat
+                        label={"부서"}
+                        id={"department"}
+                        style={"default-input pl-1"}
+                        list={departmentList}
+                    />
+                    <SelectFormat
+                        label={"직급"}
+                        id={"position"}
+                        style={"default-input pl-1"}
+                        list={positionList}
+                    />
+                    <Button text={"조회"} />
                 </section>
             </section>
             <hr className="border-default-gray my-5" />

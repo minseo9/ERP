@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 
 import MenuLabel from "../../components/MenuLabel";
-import FormFormat from "../../components/FormFormat";
+import FormFormat from "../../components/input-format/FormFormat";
+import TextInputFormat from "../../components/input-format/TextInputFormat";
+import SelectFormat from "../../components/input-format/SelectFormat";
 import Button from "../../components/Button";
 import CheckListTable from "../../components/CheckListTable";
 import PageButton from "../../components/PageButton";
@@ -13,6 +15,7 @@ const EmployeeListPage = () => {
     const [modalOpen, setModalOpen] = useState(false);
 
     const positionList = [
+        "전체",
         "사원",
         "주임",
         "대리",
@@ -22,6 +25,7 @@ const EmployeeListPage = () => {
         "이사",
     ];
     const departmentList = [
+        "전체",
         "보안 사업부",
         "솔루션 사업부",
         "컨설팅 사업부",
@@ -219,40 +223,18 @@ const EmployeeListPage = () => {
                             className="default-input px-3"
                         />
                     </FormFormat>
-                    <FormFormat label={"직급"} htmlFor={"position"}>
-                        <select
-                            name=""
-                            id="position"
-                            defaultValue="default"
-                            className="default-input pl-1"
-                        >
-                            <option value="default" disabled hidden>
-                                선택
-                            </option>
-                            {positionList.map((data) => (
-                                <option value={data} key={data}>
-                                    {data}
-                                </option>
-                            ))}
-                        </select>
-                    </FormFormat>
-                    <FormFormat label={"부서"} htmlFor={"department"}>
-                        <select
-                            name=""
-                            id="department"
-                            defaultValue="default"
-                            className="default-input pl-1"
-                        >
-                            <option value="default" disabled hidden>
-                                선택
-                            </option>
-                            {departmentList.map((data) => (
-                                <option value={data} key={data}>
-                                    {data}
-                                </option>
-                            ))}
-                        </select>
-                    </FormFormat>
+                    <SelectFormat
+                        label={"부서"}
+                        id={"department"}
+                        style={"default-input pl-1"}
+                        list={departmentList}
+                    />
+                    <SelectFormat
+                        label={"직급"}
+                        id={"position"}
+                        style={"default-input pl-1"}
+                        list={positionList}
+                    />
                     <FormFormat label={"재직 여부"} htmlFor={"state"}>
                         <input
                             type="checkbox"
@@ -262,34 +244,26 @@ const EmployeeListPage = () => {
                     </FormFormat>
                 </section>
                 <section className="flex items-center gap-4">
-                    <FormFormat label={"사원번호"} htmlFor={"number"}>
-                        <input
-                            type="text"
-                            id="number"
-                            className="default-input px-3"
-                        />
-                    </FormFormat>
-                    <FormFormat label={"이름"} htmlFor={"name"}>
-                        <input
-                            type="text"
-                            id="name"
-                            className="default-input px-3"
-                        />
-                    </FormFormat>
-                    <FormFormat label={"이메일"} htmlFor={"email"}>
-                        <input
-                            type="text"
-                            id="email"
-                            className="default-input px-3"
-                        />
-                    </FormFormat>
-                    <FormFormat label={"주소"} htmlFor={"address"}>
-                        <input
-                            type="text"
-                            id="address"
-                            className="default-input px-3"
-                        />
-                    </FormFormat>
+                    <TextInputFormat
+                        label={"사원번호"}
+                        id={"number"}
+                        style={"default-input px-3"}
+                    />
+                    <TextInputFormat
+                        label={"이름"}
+                        id={"name"}
+                        style={"default-input px-3"}
+                    />
+                    <TextInputFormat
+                        label={"이메일"}
+                        id={"email"}
+                        style={"default-input px-3"}
+                    />
+                    <TextInputFormat
+                        label={"주소"}
+                        id={"address"}
+                        style={"default-input px-3"}
+                    />
                     <Button text="조회" />
                 </section>
             </section>
