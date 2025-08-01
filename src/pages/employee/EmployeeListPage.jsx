@@ -1,5 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import useShowData from "../../hooks/useShowData";
 
+import Title from "../../components/Title";
 import FormFormat from "../../components/input-format/FormFormat";
 import TextInputFormat from "../../components/input-format/TextInputFormat";
 import SelectFormat from "../../components/input-format/SelectFormat";
@@ -9,9 +12,7 @@ import PageButton from "../../components/PageButton";
 import EmployeeEditFormModal from "./EmployeeEditFormModal";
 
 const EmployeeListPage = () => {
-    const [employeePage, setEmployeePage] = useState(1);
-    const [viewEmployeeData, setViewEmployeeData] = useState([]);
-    const [modalOpen, setModalOpen] = useState(false);
+    const location = useLocation().state.category;
 
     const positionList = [
         "전체",
@@ -181,13 +182,9 @@ const EmployeeListPage = () => {
         ],
     ];
 
-    useEffect(() => {
-        const start = (Number(employeePage) - 1) * 10;
-        const end = Number(employeePage) * 10;
-        const sliceEmployeeList = employeeData.slice(start, end);
-
-        setViewEmployeeData(sliceEmployeeList);
-    }, [employeePage]);
+    const [employeePage, setEmployeePage] = useState(1);
+    const viewEmployeeData = useShowData(employeePage, employeeData);
+    const [modalOpen, setModalOpen] = useState(false);
 
     const openModal = () => {
         setModalOpen(true);
@@ -199,6 +196,7 @@ const EmployeeListPage = () => {
 
     return (
         <div>
+            <Title text={location} />
             <section className="flex flex-col justify-center gap-3">
                 <section className="flex items-center gap-4">
                     <FormFormat label={"입사일"} htmlFor={"date"}>
@@ -264,7 +262,7 @@ const EmployeeListPage = () => {
                     <Button text="조회" />
                 </section>
             </section>
-            <hr className="border-default-gray my-5" />
+            <hr />
             <section>
                 <ShowTable headList={listLabel} bodyList={viewEmployeeData} />
             </section>

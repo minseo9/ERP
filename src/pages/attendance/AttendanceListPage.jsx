@@ -1,5 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import useShowData from "../../hooks/useShowData";
 
+import Title from "../../components/Title";
 import FormFormat from "../../components/input-format/FormFormat";
 import TextInputFormat from "../../components/input-format/TextInputFormat";
 import SelectFormat from "../../components/input-format/SelectFormat";
@@ -8,8 +11,8 @@ import ShowTable from "../../components/table/ShowTable";
 import PageButton from "../../components/PageButton";
 
 const AttendanceListPage = () => {
-    const [attendancePage, setAttendancePage] = useState(1);
-    const [viewAttendanceData, setViewAttendanceData] = useState([]);
+    const location = useLocation().state.category;
+
     const positionList = [
         "전체",
         "사원",
@@ -176,16 +179,12 @@ const AttendanceListPage = () => {
         ],
     ];
 
-    useEffect(() => {
-        const start = (Number(attendancePage) - 1) * 10;
-        const end = Number(attendancePage) * 10;
-        const sliceWorkList = workDataList.slice(start, end);
-
-        setViewAttendanceData(sliceWorkList);
-    }, [attendancePage]);
+    const [attendancePage, setAttendancePage] = useState(1);
+    const viewAttendanceData = useShowData(attendancePage, workDataList);
 
     return (
         <div>
+            <Title text={location} />
             <section className="flex w-full flex-col gap-3">
                 <section>
                     <FormFormat label={"조회 기간"} htmlFor={"searchDate"}>
@@ -227,7 +226,7 @@ const AttendanceListPage = () => {
                     <Button text={"조회"} />
                 </section>
             </section>
-            <hr className="border-default-gray my-5" />
+            <hr />
             <section>
                 <ShowTable headList={listLabel} bodyList={viewAttendanceData} />
             </section>

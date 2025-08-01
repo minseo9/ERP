@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@layer base {
+    h2 {
+        @apply text-center text-2xl font-bold;
+    }
+
+    hr {
+        @apply border-default-gray my-5;
+    }
+}
+
 @theme {
     --color-main: oklch(0.5263 0.245 262.881);
     --color-default-gray: oklch(0.929 0.005 257.84);

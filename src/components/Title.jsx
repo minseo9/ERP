@@ -1,6 +1,6 @@
 const Title = ({ text }) => {
     return (
-        <div className="text-sm font-bold">
+        <div className="mb-7 text-sm font-bold">
             {"|"} {text}
         </div>
     );
