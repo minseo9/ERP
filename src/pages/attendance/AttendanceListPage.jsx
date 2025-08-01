@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 import FormFormat from "../../components/input-format/FormFormat";
 import TextInputFormat from "../../components/input-format/TextInputFormat";
 import SelectFormat from "../../components/input-format/SelectFormat";
-import CheckListTable from "../../components/CheckListTable";
 import Button from "../../components/Button";
+import ShowTable from "../../components/table/ShowTable";
 import PageButton from "../../components/PageButton";
 
 const AttendanceListPage = () => {
     const [attendancePage, setAttendancePage] = useState(1);
-    const [attendanceData, setAttendanceData] = useState([]);
+    const [viewAttendanceData, setViewAttendanceData] = useState([]);
     const positionList = [
         "전체",
         "사원",
@@ -176,14 +176,12 @@ const AttendanceListPage = () => {
         ],
     ];
 
-    const pageNumber = Math.ceil(workDataList.length / 10);
-
     useEffect(() => {
         const start = (Number(attendancePage) - 1) * 10;
         const end = Number(attendancePage) * 10;
         const sliceWorkList = workDataList.slice(start, end);
 
-        setAttendanceData(sliceWorkList);
+        setViewAttendanceData(sliceWorkList);
     }, [attendancePage]);
 
     return (
@@ -231,22 +229,17 @@ const AttendanceListPage = () => {
             </section>
             <hr className="border-default-gray my-5" />
             <section>
-                <table className="border-default-gray w-full border-collapse border text-center text-sm">
-                    <thead className="h-[30px]">
-                        <CheckListTable list={listLabel} type />
-                    </thead>
-                    <tbody>
-                        {attendanceData.map((list) => (
-                            <CheckListTable key={list[1]} list={list} />
-                        ))}
-                    </tbody>
-                </table>
+                <ShowTable headList={listLabel} bodyList={viewAttendanceData} />
             </section>
             <section className="pt-4 text-end">
                 <Button text="수정" />
             </section>
-            <section className="flex cursor-pointer items-center justify-center gap-5 text-sm text-gray-500">
-                <PageButton page={attendancePage} pageNumber={pageNumber} />
+
+            <section>
+                <PageButton
+                    page={attendancePage}
+                    length={workDataList.length}
+                />
             </section>
         </div>
     );

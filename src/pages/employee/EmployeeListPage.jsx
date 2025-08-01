@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 
-import MenuLabel from "../../components/MenuLabel";
 import FormFormat from "../../components/input-format/FormFormat";
 import TextInputFormat from "../../components/input-format/TextInputFormat";
 import SelectFormat from "../../components/input-format/SelectFormat";
 import Button from "../../components/Button";
-import CheckListTable from "../../components/CheckListTable";
+import ShowTable from "../../components/table/ShowTable";
 import PageButton from "../../components/PageButton";
 import EmployeeEditFormModal from "./EmployeeEditFormModal";
 
@@ -182,8 +181,6 @@ const EmployeeListPage = () => {
         ],
     ];
 
-    const pageNumber = Math.ceil(employeeData.length / 10);
-
     useEffect(() => {
         const start = (Number(employeePage) - 1) * 10;
         const end = Number(employeePage) * 10;
@@ -269,22 +266,13 @@ const EmployeeListPage = () => {
             </section>
             <hr className="border-default-gray my-5" />
             <section>
-                <table className="border-default-gray border-collaps w-full border text-sm">
-                    <thead className="h-[30px]">
-                        <CheckListTable list={listLabel} type />
-                    </thead>
-                    <tbody>
-                        {viewEmployeeData.map((data) => (
-                            <CheckListTable key={data[0]} list={data} />
-                        ))}
-                    </tbody>
-                </table>
+                <ShowTable headList={listLabel} bodyList={viewEmployeeData} />
             </section>
             <section className="pt-4 text-end">
                 <Button text="수정" clickEvent={openModal} />
             </section>
-            <section className="flex cursor-pointer items-center justify-center gap-5 text-sm text-gray-500">
-                <PageButton page={employeePage} pageNumber={pageNumber} />
+            <section>
+                <PageButton page={employeePage} length={employeeData.length} />
             </section>
             <EmployeeEditFormModal
                 modalOpen={modalOpen}

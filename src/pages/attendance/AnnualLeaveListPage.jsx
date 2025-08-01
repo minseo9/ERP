@@ -1,9 +1,16 @@
+import { useState } from "react";
+
 import FormFormat from "../../components/input-format/FormFormat";
 import TextInputFormat from "../../components/input-format/TextInputFormat";
 import SelectFormat from "../../components/input-format/SelectFormat";
 import Button from "../../components/Button";
+import ShowTable from "../../components/table/ShowTable";
+import PageButton from "../../components/PageButton";
 
 const AnnualLeaveListPage = () => {
+    const [annualLeavePage, setAnnualLeavePage] = useState(1);
+    const [viewAnnualLeaveData, setViewAnnualLeaveData] = useState([]);
+
     const listLabel = [
         "사원번호",
         "이름",
@@ -23,6 +30,19 @@ const AnnualLeaveListPage = () => {
         "공가",
     ];
     const stateList = ["전체", "승인 대기", "승인", "반려"];
+    const annualLeaveData = [
+        ["1001", "김민서", "기술1팀", "연차", "2025-07-01", "승인 대기"],
+        ["1002", "이재훈", "보안 사업부", "반차", "2025-07-03", "승인"],
+        ["1003", "박수빈", "경영지원부", "대체휴가", "2025-07-04", "반려"],
+        ["1004", "최현우", "기술2팀", "포상휴가", "2025-07-05", "승인"],
+        ["1005", "정세영", "기술본부", "연차", "2025-07-07", "승인 대기"],
+        ["1006", "한예진", "컨설팅 사업부", "병가", "2025-07-10", "승인"],
+        ["1007", "김도윤", "솔루션 사업부", "공가", "2025-07-11", "반려"],
+        ["1008", "이소민", "기술연구소", "경조사", "2025-07-12", "승인 대기"],
+        ["1009", "장우석", "기술2팀", "반차", "2025-07-14", "승인"],
+        ["1010", "배지민", "보안 사업부", "연차", "2025-07-15", "승인"],
+        ["1011", "서정우", "기술1팀", "대체휴가", "2025-07-16", "반려"],
+    ];
 
     return (
         <div>
@@ -69,8 +89,19 @@ const AnnualLeaveListPage = () => {
                 </section>
             </section>
             <hr className="border-default-gray my-5" />
+            <section>
+                <ShowTable
+                    headList={listLabel}
+                    bodyList={viewAnnualLeaveData}
+                />
+            </section>
             <section></section>
-            <section></section>
+            <section>
+                <PageButton
+                    page={annualLeavePage}
+                    length={annualLeaveData.length}
+                />
+            </section>
         </div>
     );
 };
