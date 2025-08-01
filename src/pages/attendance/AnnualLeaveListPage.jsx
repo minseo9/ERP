@@ -19,8 +19,10 @@ const AnnualLeaveListPage = () => {
         "부서",
         "신청서",
         "연차 종류",
-        "제출일",
+        "신청일",
         "상태",
+        "확인 날짜",
+        "담당자",
     ];
     const annualLeaveType = [
         "전체",
@@ -32,7 +34,7 @@ const AnnualLeaveListPage = () => {
         "병가",
         "공가",
     ];
-    const stateList = ["전체", "승인 대기", "승인", "반려"];
+    const stateList = ["전체", "접수", "승인", "반려"];
     const annualLeaveData = [
         [
             "1001",
@@ -42,6 +44,7 @@ const AnnualLeaveListPage = () => {
             "연차",
             "2025-07-01",
             "승인 대기",
+            "",
         ],
         [
             "1002",
@@ -51,6 +54,7 @@ const AnnualLeaveListPage = () => {
             "반차",
             "2025-07-03",
             "승인",
+            "김담당",
         ],
         [
             "1003",
@@ -60,6 +64,7 @@ const AnnualLeaveListPage = () => {
             "대체휴가",
             "2025-07-04",
             "반려",
+            "김담당",
         ],
         [
             "1004",
@@ -69,6 +74,7 @@ const AnnualLeaveListPage = () => {
             "포상휴가",
             "2025-07-05",
             "승인",
+            "김담당",
         ],
         [
             "1005",
@@ -78,6 +84,7 @@ const AnnualLeaveListPage = () => {
             "연차",
             "2025-07-07",
             "승인 대기",
+            "",
         ],
         [
             "1006",
@@ -87,6 +94,7 @@ const AnnualLeaveListPage = () => {
             "병가",
             "2025-07-10",
             "승인",
+            "김담당",
         ],
         [
             "1007",
@@ -96,6 +104,7 @@ const AnnualLeaveListPage = () => {
             "공가",
             "2025-07-11",
             "반려",
+            "김담당",
         ],
         [
             "1008",
@@ -105,6 +114,7 @@ const AnnualLeaveListPage = () => {
             "경조사",
             "2025-07-12",
             "승인 대기",
+            "",
         ],
         [
             "1009",
@@ -114,6 +124,7 @@ const AnnualLeaveListPage = () => {
             "반차",
             "2025-07-14",
             "승인",
+            "김담당",
         ],
         [
             "1010",
@@ -123,6 +134,7 @@ const AnnualLeaveListPage = () => {
             "연차",
             "2025-07-15",
             "승인",
+            "김담당",
         ],
         [
             "1011",
@@ -132,6 +144,7 @@ const AnnualLeaveListPage = () => {
             "대체휴가",
             "2025-07-16",
             "반려",
+            "김담당",
         ],
     ];
 
