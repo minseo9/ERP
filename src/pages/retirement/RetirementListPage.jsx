@@ -202,7 +202,7 @@ const RetirementListPage = () => {
                     isHeadCheck
                 />
             </section>
-            <section className="flex justify-end gap-4 pt-4">
+            <section className="flex justify-end gap-3 pt-4">
                 <Button text={"상태 변경"} />
                 <Button text={"삭제"} />
             </section>
