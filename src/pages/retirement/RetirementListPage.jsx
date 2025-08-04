@@ -188,7 +188,7 @@ const RetirementListPage = () => {
                     <SelectFormat
                         label={"신청 상태"}
                         id={"state"}
-                        style={"default-input"}
+                        style={"default-input pl-1"}
                         list={stateList}
                     />
                     <Button text={"조회"} />

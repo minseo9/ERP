@@ -135,12 +135,12 @@ const RetirementEmployeeListPage = () => {
                     <TextInputFormat
                         label={"사원번호"}
                         id={"number"}
-                        style={"default-input"}
+                        style={"default-input px-3"}
                     />
                     <TextInputFormat
                         label={"이름"}
                         id={"name"}
-                        style={"default-input"}
+                        style={"default-input px-3"}
                     />
                     <FormFormat label={"재직기간"} htmlFor={"date"}>
                         <input
@@ -158,7 +158,7 @@ const RetirementEmployeeListPage = () => {
                             className="default-input mx-1 w-[40px] px-2"
                         />
                         일
-                        <select className="default-input ml-3">
+                        <select className="default-input ml-3 pl-1">
                             <option>이상</option>
                             <option>이하</option>
                         </select>
