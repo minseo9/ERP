@@ -1,5 +1,15 @@
+import Title from "../../components/Title";
+
 const RetirementEmployeeListPage = () => {
-    return <div>퇴직직원조회</div>;
+    return (
+        <div>
+            <Title />
+            <section></section>
+            <section></section>
+            <section></section>
+            <section></section>
+        </div>
+    );
 };
 
 export default RetirementEmployeeListPage;

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
 import useShowData from "../../hooks/useShowData";
 
 import Title from "../../components/Title";
@@ -11,8 +10,6 @@ import ShowTable from "../../components/table/ShowTable";
 import PageButton from "../../components/PageButton";
 
 const AttendanceListPage = () => {
-    const location = useLocation().state.category;
-
     const positionList = [
         "전체",
         "사원",
@@ -184,7 +181,7 @@ const AttendanceListPage = () => {
 
     return (
         <div>
-            <Title text={location} />
+            <Title />
             <section className="flex w-full flex-col gap-3">
                 <section>
                     <FormFormat label={"조회 기간"} htmlFor={"searchDate"}>

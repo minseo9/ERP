@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
 import useShowData from "../../hooks/useShowData";
 
 import Title from "../../components/Title";
@@ -12,8 +11,6 @@ import PageButton from "../../components/PageButton";
 import EmployeeEditFormModal from "./EmployeeEditFormModal";
 
 const EmployeeListPage = () => {
-    const location = useLocation().state.category;
-
     const positionList = [
         "전체",
         "사원",
@@ -196,7 +193,7 @@ const EmployeeListPage = () => {
 
     return (
         <div>
-            <Title text={location} />
+            <Title />
             <section className="flex flex-col justify-center gap-3">
                 <section className="flex items-center gap-4">
                     <FormFormat label={"입사일"} htmlFor={"date"}>

@@ -1,6 +1,4 @@
 const CheckListTable = ({ list, isHead, isHeadCheck }) => {
-    console.log(isHeadCheck);
-
     return (
         <tr>
             {isHead === false ? (

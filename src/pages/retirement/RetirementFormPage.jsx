@@ -1,14 +1,10 @@
-import { useLocation } from "react-router-dom";
-
 import Title from "../../components/Title";
 import Button from "../../components/Button";
 
 const RetirementFormPage = () => {
-    const location = useLocation().state.category;
-
     return (
         <div>
-            <Title text={location} />
+            <Title />
             <section className="m-auto flex-col items-center justify-center">
                 <section>
                     <h2>퇴직 신청서</h2>

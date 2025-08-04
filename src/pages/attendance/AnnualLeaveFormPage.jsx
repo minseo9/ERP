@@ -1,13 +1,9 @@
-import { useLocation } from "react-router-dom";
-
 import Title from "../../components/Title";
 import TextInputFormat from "../../components/input-format/TextInputFormat";
 import FormFormat from "../../components/input-format/FormFormat";
 import Button from "../../components/Button";
 
 const AnnualLeaveFormPage = () => {
-    const location = useLocation().state.category;
-
     const annualLeaveType = [
         "전체",
         "연차",
@@ -21,7 +17,7 @@ const AnnualLeaveFormPage = () => {
 
     return (
         <div>
-            <Title text={location} />
+            <Title />
             <section className="m-auto flex-col items-center justify-center">
                 <section>
                     <h2>연차 신청서</h2>
