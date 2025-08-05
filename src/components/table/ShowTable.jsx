@@ -8,8 +8,8 @@ const ShowTable = ({
     isDefaultList = false,
 }) => {
     return (
-        <table className="border-default-gray border-collaps w-full border text-sm">
-            <thead className="h-[30px]">
+        <table className="border-default-gray w-full border-collapse border text-sm">
+            <thead className="sticky top-0 z-10 h-[30px]">
                 {isDefaultList ? (
                     <DefaultListTable list={headList} isHead />
                 ) : (
