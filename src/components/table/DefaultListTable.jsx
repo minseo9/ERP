@@ -1,5 +1,4 @@
 const DefaultListTable = ({ list, isHead }) => {
-    console.log(list[0]);
     return (
         <tr>
             {list.map((data, index) => (

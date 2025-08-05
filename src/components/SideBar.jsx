@@ -30,9 +30,9 @@ const SideBar = ({ menu, setMenu }) => {
             category: "급여관리",
             details: [
                 { category: "급여 현황 조회", to: "/payroll/list" },
-                { category: "급여지급관리", to: "/payroll/management" },
                 { category: "봉급표", to: "/salarytable" },
-                { category: "수당/공제 관리", to: "/allowancededuction" },
+                { category: "급여 지급 관리", to: "/payroll/management" },
+                { category: "수당 공제 관리", to: "/allowancededuction" },
             ],
         },
         {
