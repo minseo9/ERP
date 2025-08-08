@@ -4,9 +4,9 @@ import Title from "../../components/Title";
 import ShowTable from "../../components/table/ShowTable";
 import Button from "../../components/Button";
 
-import AllowanceAddModal from "../../components/modal/AllowanceAddModal";
-import DeductionAddModal from "../../components/modal/DeductionAddModal";
-import SalaryTableModal from "../../components/modal/SalaryTableModal";
+import AllowanceAddModal from "../../components/modal/payroll/AllowanceAddModal";
+import DeductionAddModal from "../../components/modal/payroll/DeductionAddModal";
+import SalaryTableModal from "../../components/modal/payroll/SalaryTableModal";
 
 const AllowanceDeductionManagementPage = () => {
     const [allowanceModalOpen, setAllowanceModalOpen] = useState(false);

@@ -6,6 +6,7 @@ const ShowTable = ({
     bodyList,
     isHeadCheck = false,
     isDefaultList = false,
+    isEvent = false,
 }) => {
     return (
         <table className="border-default-gray w-full border-collapse border text-sm">
@@ -33,6 +34,7 @@ const ShowTable = ({
                             key={`${data[0]}-${index}`}
                             list={data}
                             isHead={false}
+                            isEvent={isEvent}
                         />
                     ),
                 )}

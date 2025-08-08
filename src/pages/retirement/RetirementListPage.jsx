@@ -9,6 +9,9 @@ import Button from "../../components/Button";
 import ShowTable from "../../components/table/ShowTable";
 import PageButton from "../../components/PageButton";
 
+import RetirementFormModal from "../../components/modal/retirement/RetirementFormModal";
+import ChangeStatusModal from "../../components/modal/ChangeStatusModal";
+
 const RetirementListPage = () => {
     const stateList = ["전체", "접수", "승인", "반려"];
     const listLabel = [
@@ -136,6 +139,22 @@ const RetirementListPage = () => {
 
     const [RetirementPage, setRetirementPage] = useState(1);
     const viewRetirementData = useShowData(RetirementPage, resignationData);
+    const [retirementFormModalOpen, setRetirementFormModalOpen] =
+        useState(false);
+    const [changeStatusModalOpen, setChangeStatusModalOpen] = useState(false);
+
+    const openRetirementFormModal = () => {
+        setRetirementFormModalOpen(true);
+    };
+    const closeRetirementFormModal = () => {
+        setRetirementFormModalOpen(false);
+    };
+    const openChangeStatusModalOpen = () => {
+        setChangeStatusModalOpen(true);
+    };
+    const closeChangeStatusModalOpen = () => {
+        setChangeStatusModalOpen(false);
+    };
 
     return (
         <div>
@@ -200,10 +219,14 @@ const RetirementListPage = () => {
                     headList={listLabel}
                     bodyList={viewRetirementData}
                     isHeadCheck
+                    isEvent={openRetirementFormModal}
                 />
             </section>
             <section className="flex justify-end gap-3 pt-4">
-                <Button text={"상태 변경"} />
+                <Button
+                    text={"상태 변경"}
+                    clickEvent={openChangeStatusModalOpen}
+                />
                 <Button text={"삭제"} />
             </section>
             <section>
@@ -212,6 +235,17 @@ const RetirementListPage = () => {
                     length={resignationData.length}
                 />
             </section>
+            <RetirementFormModal
+                retirementFormModalOpen={retirementFormModalOpen}
+                closeRetirementFormModal={closeRetirementFormModal}
+                changeStatusModalOpen={changeStatusModalOpen}
+                openChangeStatusModalOpen={openChangeStatusModalOpen}
+                closeChangeStatusModalOpen={closeChangeStatusModalOpen}
+            />
+            <ChangeStatusModal
+                changeStatusModalOpen={changeStatusModalOpen}
+                closeChangeStatusModalOpen={closeChangeStatusModalOpen}
+            />
         </div>
     );
 };

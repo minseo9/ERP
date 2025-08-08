@@ -9,6 +9,9 @@ import Button from "../../components/Button";
 import ShowTable from "../../components/table/ShowTable";
 import PageButton from "../../components/PageButton";
 
+import AnnualLeaveFormModal from "../../components/modal/attendance/AnnualLeaveFormModal";
+import ChangeStatusModal from "../../components/modal/ChangeStatusModal";
+
 const AnnualLeaveListPage = () => {
     const listLabel = [
         "사원번호",
@@ -147,6 +150,22 @@ const AnnualLeaveListPage = () => {
 
     const [annualLeavePage, setAnnualLeavePage] = useState(1);
     const viewAnnualLeaveData = useShowData(annualLeavePage, annualLeaveData);
+    const [annualLeaveFormModalOpen, setAnnualLeaveFormModalOpen] =
+        useState(false);
+    const [changeStatusModalOpen, setChangeStatusModalOpen] = useState(false);
+
+    const openAnnualLeaveFormModal = () => {
+        setAnnualLeaveFormModalOpen(true);
+    };
+    const closeAnnualLeaveFormModal = () => {
+        setAnnualLeaveFormModalOpen(false);
+    };
+    const openChangeStatusModalOpen = () => {
+        setChangeStatusModalOpen(true);
+    };
+    const closeChangeStatusModalOpen = () => {
+        setChangeStatusModalOpen(false);
+    };
 
     return (
         <div>
@@ -199,10 +218,14 @@ const AnnualLeaveListPage = () => {
                     headList={listLabel}
                     bodyList={viewAnnualLeaveData}
                     isHeadCheck
+                    isEvent={openAnnualLeaveFormModal}
                 />
             </section>
             <section className="flex justify-end gap-3 pt-4">
-                <Button text="상태 변경" />
+                <Button
+                    text="상태 변경"
+                    clickEvent={openChangeStatusModalOpen}
+                />
                 <Button text="삭제" />
             </section>
             <section>
@@ -211,6 +234,17 @@ const AnnualLeaveListPage = () => {
                     length={annualLeaveData.length}
                 />
             </section>
+            <AnnualLeaveFormModal
+                annualLeaveFormModalOpen={annualLeaveFormModalOpen}
+                closeAnnualLeaveFormModal={closeAnnualLeaveFormModal}
+                changeStatusModalOpen={changeStatusModalOpen}
+                openChangeStatusModalOpen={openChangeStatusModalOpen}
+                closeChangeStatusModalOpen={closeChangeStatusModalOpen}
+            />
+            <ChangeStatusModal
+                changeStatusModalOpen={changeStatusModalOpen}
+                closeChangeStatusModalOpen={closeChangeStatusModalOpen}
+            />
         </div>
     );
 };

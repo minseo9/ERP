@@ -1,8 +1,7 @@
-import TextInputFormat from "../input-format/TextInputFormat";
-import SelectFormat from "../input-format/SelectFormat";
-import Button from "../Button";
-
-import closeIcon from "../../assets/close-icon.png";
+import TextInputFormat from "../../input-format/TextInputFormat";
+import SelectFormat from "../../input-format/SelectFormat";
+import Button from "../../Button";
+import ModalCloseButton from "../../ModalCloseButton";
 
 const AttendanceEditFormModal = ({ modalOpen, closeModal }) => {
     if (!modalOpen) return null;
@@ -20,36 +19,29 @@ const AttendanceEditFormModal = ({ modalOpen, closeModal }) => {
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-400/50">
-            <div className="relative h-[600px] w-full max-w-[600px] rounded-xl bg-white py-5 shadow-lg">
-                <section className="px-6 text-end">
-                    <button
-                        onClick={closeModal}
-                        className="h-[20px] w-[20px] cursor-pointer"
-                    >
-                        <img src={closeIcon} alt="취소 버튼" />
-                    </button>
-                </section>
+            <div className="relative h-[550px] w-full max-w-[600px] rounded-xl bg-white py-5 shadow-lg">
+                <ModalCloseButton clickEvent={closeModal} />
                 <section className="px-10 py-4">
                     <div className="font-bold">사원번호 이름의 근태 정보</div>
-                    <section className="mt-10 ml-19 flex flex-col gap-10">
+                    <section className="mt-10 ml-19 flex flex-col gap-7">
                         <div className="flex gap-5">
                             <TextInputFormat
                                 label={"출근시간"}
                                 id={"time"}
-                                style={"form-input"}
+                                style={"form-input h-[30px]"}
                                 isFlex
                             />
                             <TextInputFormat
                                 label={"퇴근시간"}
                                 id={"time"}
-                                style={"form-input"}
+                                style={"form-input h-[30px]"}
                                 isFlex
                             />
                         </div>
                         <TextInputFormat
                             label={"초과시간"}
                             id={"time"}
-                            style={"form-input w-[100px]"}
+                            style={"form-input w-[100px] h-[30px]"}
                             isFlex
                             isReadOnly
                         />

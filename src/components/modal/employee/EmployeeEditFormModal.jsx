@@ -1,10 +1,10 @@
-import FormFormat from "../input-format/FormFormat";
-import TextInputFormat from "../input-format/TextInputFormat";
-import SelectFormat from "../input-format/SelectFormat";
-import Button from "../Button";
+import FormFormat from "../../input-format/FormFormat";
+import TextInputFormat from "../../input-format/TextInputFormat";
+import SelectFormat from "../../input-format/SelectFormat";
+import Button from "../../Button";
+import ModalCloseButton from "../../ModalCloseButton";
 
-import companyLogo from "../../assets/company-logo.png";
-import closeIcon from "../../assets/close-icon.png";
+import companyLogo from "../../../assets/company-logo.png";
 
 const EmployeeEditFormModal = ({ modalOpen, closeModal }) => {
     if (!modalOpen) return null;
@@ -31,15 +31,8 @@ const EmployeeEditFormModal = ({ modalOpen, closeModal }) => {
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-400/50">
-            <div className="relative h-[650px] w-full max-w-[600px] rounded-xl bg-white py-5 shadow-lg">
-                <section className="px-6 text-end">
-                    <button
-                        onClick={closeModal}
-                        className="h-[20px] w-[20px] cursor-pointer"
-                    >
-                        <img src={closeIcon} alt="취소 버튼" />
-                    </button>
-                </section>
+            <div className="relative h-[680px] w-full max-w-[600px] rounded-xl bg-white py-5 shadow-lg">
+                <ModalCloseButton clickEvent={closeModal} />
                 <section className="mb-6 flex gap-3 pl-25">
                     <img
                         src={companyLogo}

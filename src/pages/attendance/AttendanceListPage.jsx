@@ -9,7 +9,7 @@ import Button from "../../components/Button";
 import ShowTable from "../../components/table/ShowTable";
 import PageButton from "../../components/PageButton";
 
-import AttendanceEditFormModal from "../../components/modal/AttendanceEditFormModal";
+import AttendanceEditFormModal from "../../components/modal/attendance/AttendanceEditFormModal";
 
 const AttendanceListPage = () => {
     const positionList = [

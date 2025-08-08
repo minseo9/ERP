@@ -1,8 +1,7 @@
-import SelectFormat from "../input-format/SelectFormat";
-import Button from "../Button";
-import ShowTable from "../table/ShowTable";
-
-import closeIcon from "../../assets/close-icon.png";
+import SelectFormat from "../../input-format/SelectFormat";
+import Button from "../../Button";
+import ShowTable from "../../table/ShowTable";
+import ModalCloseButton from "../../ModalCloseButton";
 
 const SalaryTablePage = ({ salaryTableModalOpen, closeSalaryTableModal }) => {
     if (!salaryTableModalOpen) return null;
@@ -32,14 +31,7 @@ const SalaryTablePage = ({ salaryTableModalOpen, closeSalaryTableModal }) => {
         <div>
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-400/50">
                 <div className="relative h-[550px] w-full max-w-[1000px] rounded-xl bg-white py-5 shadow-lg">
-                    <section className="px-6 text-end">
-                        <button
-                            onClick={closeSalaryTableModal}
-                            className="h-[20px] w-[20px] cursor-pointer"
-                        >
-                            <img src={closeIcon} alt="취소 버튼" />
-                        </button>
-                    </section>
+                    <ModalCloseButton clickEvent={closeSalaryTableModal} />
                     <section className="px-10 py-4">
                         <section className="flex items-center justify-around">
                             <SelectFormat

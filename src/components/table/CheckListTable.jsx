@@ -1,4 +1,6 @@
-const CheckListTable = ({ list, isHead, isHeadCheck }) => {
+const CheckListTable = ({ list, isHead, isHeadCheck, isEvent }) => {
+    const formCheck = (data) => data.includes("신청서");
+
     return (
         <tr>
             {isHead === false ? (
@@ -26,8 +28,11 @@ const CheckListTable = ({ list, isHead, isHeadCheck }) => {
                     className={
                         isHead === true
                             ? "bg-default-gray text-center"
-                            : "border-default-gray border-r border-b text-center"
+                            : formCheck(data)
+                              ? "border-default-gray cursor-pointer border-r border-b text-center"
+                              : "border-default-gray border-r border-b text-center"
                     }
+                    onClick={() => (formCheck(data) ? isEvent() : null)}
                 >
                     {data}
                 </td>

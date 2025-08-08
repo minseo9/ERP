@@ -1,23 +1,15 @@
-import TextInputFormat from "../input-format/TextInputFormat";
-import SelectFormat from "../input-format/SelectFormat";
-import Button from "../Button";
+import TextInputFormat from "../../input-format/TextInputFormat";
+import SelectFormat from "../../input-format/SelectFormat";
+import Button from "../../Button";
+import ModalCloseButton from "../../ModalCloseButton";
 
-import closeIcon from "../../assets/close-icon.png";
-
-const DeductionAddModal = ({ deductionModalOpen, closeDeductionModal }) => {
+const DeductionAddModal = ({ deductionModalOpen, ModalCloseButton }) => {
     if (!deductionModalOpen) return null;
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-400/50">
             <div className="relative h-[350px] w-full max-w-[450px] rounded-xl bg-white py-5 shadow-lg">
-                <section className="px-6 text-end">
-                    <button
-                        onClick={closeDeductionModal}
-                        className="h-[15px] w-[15px] cursor-pointer"
-                    >
-                        <img src={closeIcon} alt="취소 버튼" />
-                    </button>
-                </section>
+                <ModalCloseButton clickEvent={ModalCloseButton} />
                 <section className="flex flex-col gap-5 px-10">
                     <div className="mb-3 font-bold">공제 항목 추가</div>
                     <TextInputFormat
