@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Title from "../../components/Title";
 import Button from "../../components/Button";
 import ShowTable from "../../components/table/ShowTable";
@@ -5,7 +7,29 @@ import FormFormat from "../../components/input-format/FormFormat";
 import TextInputFormat from "../../components/input-format/TextInputFormat";
 import PageButton from "../../components/PageButton";
 
+import PreviousSalaryModal from "../../components/modal/payroll/PreviousSalaryModal";
+import PayrollAddModal from "../../components/modal/payroll/PayrollAddModal";
+
 const PayrollManagementPage = () => {
+    const [previousSalaryModalOpen, setPreviousSalaryModalOpen] =
+        useState(false);
+    const [payrollAddModalOpen, setPayrollAddModalOpen] = useState(false);
+    const [addType, setAddType] = useState("");
+
+    const openPreviousSalaryModal = () => {
+        setPreviousSalaryModalOpen(true);
+    };
+    const closePreviousSalaryModal = () => {
+        setPreviousSalaryModalOpen(false);
+    };
+    const openPayrollAddModal = (type) => {
+        setAddType(type);
+        setPayrollAddModalOpen(true);
+    };
+    const closePayrollAddModal = () => {
+        setPayrollAddModalOpen(false);
+    };
+
     return (
         <div>
             <Title />
@@ -42,7 +66,10 @@ const PayrollManagementPage = () => {
             </section>
             <hr />
             <section className="mb-8 flex justify-between">
-                <Button text={"지난급여정보불러오기"} />
+                <Button
+                    text={"지난급여 불러오기"}
+                    clickEvent={openPreviousSalaryModal}
+                />
                 <Button text={"저장"} />
             </section>
             <main className="flex gap-5">
@@ -77,7 +104,12 @@ const PayrollManagementPage = () => {
                             </div>
                         </div>
                         <div className="flex flex-col gap-2">
-                            <Button text={"추가"} />
+                            <Button
+                                text={"추가"}
+                                clickEvent={() => {
+                                    openPayrollAddModal("지급 항목");
+                                }}
+                            />
                             <Button text={"수정"} />
                         </div>
                     </div>
@@ -105,9 +137,13 @@ const PayrollManagementPage = () => {
                                 </div>
                             </div>
                         </div>
-
                         <div className="flex flex-col gap-2">
-                            <Button text={"추가"} />
+                            <Button
+                                text={"추가"}
+                                clickEvent={() => {
+                                    openPayrollAddModal("공제 항목");
+                                }}
+                            />
                             <Button text={"수정"} />
                         </div>
                     </div>
@@ -141,6 +177,15 @@ const PayrollManagementPage = () => {
                     </div>
                 </div>
             </section>
+            <PreviousSalaryModal
+                previousSalaryModalOpen={previousSalaryModalOpen}
+                closePreviousSalaryModal={closePreviousSalaryModal}
+            />
+            <PayrollAddModal
+                payrollAddModalOpen={payrollAddModalOpen}
+                closePayrollAddModal={closePayrollAddModal}
+                addType={addType}
+            />
         </div>
     );
 };
