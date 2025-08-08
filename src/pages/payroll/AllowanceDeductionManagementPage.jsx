@@ -6,10 +6,12 @@ import Button from "../../components/Button";
 
 import AllowanceAddModal from "../../components/modal/AllowanceAddModal";
 import DeductionAddModal from "../../components/modal/DeductionAddModal";
+import SalaryTableModal from "../../components/modal/SalaryTableModal";
 
 const AllowanceDeductionManagementPage = () => {
     const [allowanceModalOpen, setAllowanceModalOpen] = useState(false);
     const [deductionModalOpen, setDeductionModalOpen] = useState(false);
+    const [salaryTableModalOpen, setSalaryTableModalOpen] = useState(false);
 
     const openAllowanceModal = () => {
         setAllowanceModalOpen(true);
@@ -27,12 +29,20 @@ const AllowanceDeductionManagementPage = () => {
         setDeductionModalOpen(false);
     };
 
+    const openSalaryTableModal = () => {
+        setSalaryTableModalOpen(true);
+    };
+
+    const closeSalaryTableModal = () => {
+        setSalaryTableModalOpen(false);
+    };
+
     return (
         <div>
             <div className="flex items-center justify-between">
                 <Title text={"수당 항목"} />
                 <div className="mr-4 mb-2">
-                    <Button text={"봉급표"} />
+                    <Button text={"봉급표"} clickEvent={openSalaryTableModal} />
                 </div>
             </div>
 
@@ -95,6 +105,10 @@ const AllowanceDeductionManagementPage = () => {
                     {/* 수정 버튼 누르면 저장으로 변경 */}
                 </div>
             </section>
+            <SalaryTableModal
+                salaryTableModalOpen={salaryTableModalOpen}
+                closeSalaryTableModal={closeSalaryTableModal}
+            />
             <AllowanceAddModal
                 allowanceModalOpen={allowanceModalOpen}
                 closeAllowanceModal={closeAllowanceModal}

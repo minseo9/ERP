@@ -5,7 +5,6 @@ import Button from "../../components/Button";
 import closeIcon from "../../assets/close-icon.png";
 
 const AllowanceAddModal = ({ allowanceModalOpen, closeAllowanceModal }) => {
-    console.log(allowanceModalOpen);
     if (!allowanceModalOpen) return null;
 
     return (
