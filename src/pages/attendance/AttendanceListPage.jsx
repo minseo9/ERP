@@ -9,6 +9,8 @@ import Button from "../../components/Button";
 import ShowTable from "../../components/table/ShowTable";
 import PageButton from "../../components/PageButton";
 
+import AttendanceEditFormModal from "./AttendanceEditFormModal";
+
 const AttendanceListPage = () => {
     const positionList = [
         "전체",
@@ -178,6 +180,15 @@ const AttendanceListPage = () => {
 
     const [attendancePage, setAttendancePage] = useState(1);
     const viewAttendanceData = useShowData(attendancePage, workDataList);
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => {
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
 
     return (
         <div>
@@ -228,7 +239,7 @@ const AttendanceListPage = () => {
                 <ShowTable headList={listLabel} bodyList={viewAttendanceData} />
             </section>
             <section className="pt-4 text-end">
-                <Button text="수정" />
+                <Button text="수정" clickEvent={openModal} />
             </section>
 
             <section>
@@ -237,6 +248,10 @@ const AttendanceListPage = () => {
                     length={workDataList.length}
                 />
             </section>
+            <AttendanceEditFormModal
+                modalOpen={modalOpen}
+                closeModal={closeModal}
+            />
         </div>
     );
 };
