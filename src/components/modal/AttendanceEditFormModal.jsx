@@ -1,6 +1,6 @@
-import TextInputFormat from "../../components/input-format/TextInputFormat";
-import SelectFormat from "../../components/input-format/SelectFormat";
-import Button from "../../components/Button";
+import TextInputFormat from "../input-format/TextInputFormat";
+import SelectFormat from "../input-format/SelectFormat";
+import Button from "../Button";
 
 import closeIcon from "../../assets/close-icon.png";
 

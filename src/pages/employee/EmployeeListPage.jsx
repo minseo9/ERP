@@ -8,7 +8,7 @@ import SelectFormat from "../../components/input-format/SelectFormat";
 import Button from "../../components/Button";
 import ShowTable from "../../components/table/ShowTable";
 import PageButton from "../../components/PageButton";
-import EmployeeEditFormModal from "./EmployeeEditFormModal";
+import EmployeeEditFormModal from "../../components/modal/EmployeeEditFormModal";
 
 const EmployeeListPage = () => {
     const positionList = [

@@ -1,8 +1,32 @@
+import { useState } from "react";
+
 import Title from "../../components/Title";
 import ShowTable from "../../components/table/ShowTable";
 import Button from "../../components/Button";
 
+import AllowanceAddModal from "../../components/modal/AllowanceAddModal";
+import DeductionAddModal from "../../components/modal/DeductionAddModal";
+
 const AllowanceDeductionManagementPage = () => {
+    const [allowanceModalOpen, setAllowanceModalOpen] = useState(false);
+    const [deductionModalOpen, setDeductionModalOpen] = useState(false);
+
+    const openAllowanceModal = () => {
+        setAllowanceModalOpen(true);
+    };
+
+    const closeAllowanceModal = () => {
+        setAllowanceModalOpen(false);
+    };
+
+    const openDeductionModal = () => {
+        setDeductionModalOpen(true);
+    };
+
+    const closeDeductionModal = () => {
+        setDeductionModalOpen(false);
+    };
+
     return (
         <div>
             <div className="flex items-center justify-between">
@@ -35,7 +59,10 @@ const AllowanceDeductionManagementPage = () => {
                     />
                 </div>
                 <div className="mt-3 mb-8 flex gap-2">
-                    <Button text={"항목 추가"} />
+                    <Button
+                        text={"항목 추가"}
+                        clickEvent={openAllowanceModal}
+                    />
                     <Button text={"수정"} />
                     {/* 수정 버튼 누르면 저장으로 변경 */}
                 </div>
@@ -44,7 +71,7 @@ const AllowanceDeductionManagementPage = () => {
             <section>
                 <div className="max-h-[180px] overflow-y-scroll">
                     <ShowTable
-                        headList={["공제명칭", "공제구분", "여율"]}
+                        headList={["공제명칭", "공제구분", "공제율"]}
                         bodyList={[
                             ["소득세", "법정공제", "-"],
                             ["국민연금", "법정공제", "4.5"],
@@ -60,11 +87,22 @@ const AllowanceDeductionManagementPage = () => {
                     />
                 </div>
                 <div className="mt-3 flex gap-2">
-                    <Button text={"항목 추가"} />
+                    <Button
+                        text={"항목 추가"}
+                        clickEvent={openDeductionModal}
+                    />
                     <Button text={"수정"} />
                     {/* 수정 버튼 누르면 저장으로 변경 */}
                 </div>
             </section>
+            <AllowanceAddModal
+                allowanceModalOpen={allowanceModalOpen}
+                closeAllowanceModal={closeAllowanceModal}
+            />
+            <DeductionAddModal
+                deductionModalOpen={deductionModalOpen}
+                closeDeductionModal={closeDeductionModal}
+            />
         </div>
     );
 };

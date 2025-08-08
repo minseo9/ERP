@@ -1,7 +1,7 @@
-import FormFormat from "../../components/input-format/FormFormat";
-import TextInputFormat from "../../components/input-format/TextInputFormat";
-import SelectFormat from "../../components/input-format/SelectFormat";
-import Button from "../../components/Button";
+import FormFormat from "../input-format/FormFormat";
+import TextInputFormat from "../input-format/TextInputFormat";
+import SelectFormat from "../input-format/SelectFormat";
+import Button from "../Button";
 
 import companyLogo from "../../assets/company-logo.png";
 import closeIcon from "../../assets/close-icon.png";
