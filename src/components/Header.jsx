@@ -1,8 +1,8 @@
 import companyLogo from "../assets/company-logo.png";
-import setting from "../assets/settings-icon.png";
+import person from "../assets/person-icon.png";
 import exitDoor from "../assets/exit-door-icon.png";
 
-const Header = () => {
+const Header = ({ changeMyPage }) => {
     return (
         <div className="bg-default-gray flex">
             <div className="flex flex-1 items-center justify-between px-5 py-2">
@@ -14,9 +14,9 @@ const Header = () => {
                 <span className="text-xs font-bold">000님</span>
             </div>
             <div className="flex items-center px-5">
-                <button className="cursor-pointer">
+                <button className="cursor-pointer" onClick={changeMyPage}>
                     <img
-                        src={setting}
+                        src={person}
                         alt="설정"
                         className="h-[20px] w-[20px]"
                     />

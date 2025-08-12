@@ -7,6 +7,6 @@ export const payrollRoutesData = [
     { element: <PayrollManagementPage />, path: "/payroll/management" },
     {
         element: <AllowanceDeductionManagementPage />,
-        path: "/allowancededuction",
+        path: "/allowance-deduction",
     },
 ];
