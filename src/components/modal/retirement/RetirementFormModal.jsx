@@ -1,5 +1,6 @@
 import Button from "../../Button";
 import ModalCloseButton from "../../ModalCloseButton";
+import FormInputFormat from "../../input-format/FormInputFormat";
 import ChangeStatusModal from "../ChangeStatusModal";
 
 const RetirementFormModal = ({
@@ -19,82 +20,35 @@ const RetirementFormModal = ({
                     <h2>퇴직 신청서</h2>
                     <section className="border-default-gray mt-10 grid border">
                         <div className="grid grid-cols-[1fr_3fr_1fr_3fr]">
-                            <label
-                                htmlFor="id"
-                                className="bg-default-gray border-default-gray border-b py-3 text-center"
-                            >
-                                사원번호
-                            </label>
-                            <input
-                                type="text"
-                                id="id"
-                                className="border-default-gray border-b px-3"
+                            <FormInputFormat
+                                label={"사원번호"}
+                                id={"employeeNumber"}
                             />
-                            <label
-                                htmlFor="department"
-                                className="bg-default-gray border-default-gray border-b py-3 text-center"
-                            >
-                                부서
-                            </label>
-                            <input
-                                type="text"
-                                id="department"
-                                className="border-default-gray border-b px-3"
+                            <FormInputFormat label={"부서"} id={"department"} />
+                            <FormInputFormat label={"이름"} id={"name"} />
+                            <FormInputFormat label={"직급"} id={"position"} />
+                            <FormInputFormat
+                                label={"입사일"}
+                                id={"joiningDate"}
+                                type={"date"}
                             />
-                            <label
-                                htmlFor="name"
-                                className="bg-default-gray border-default-gray border-b py-3 text-center"
-                            >
-                                이름
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                className="border-default-gray border-b px-3"
-                            />
-
-                            <label
-                                htmlFor="position"
-                                className="bg-default-gray border-default-gray border-b py-3 text-center"
-                            >
-                                직급
-                            </label>
-                            <input
-                                type="text"
-                                id="position"
-                                className="border-default-gray border-b px-3"
-                            />
-                            <label
-                                htmlFor="date"
-                                className="bg-default-gray border-default-gray border-b py-3 text-center"
-                            >
-                                입사일
-                            </label>
-                            <input
-                                type="date"
-                                id="date"
-                                className="border-default-gray border-b px-3"
-                            />
-                            <label
-                                htmlFor="date"
-                                className="bg-default-gray border-default-gray border-b py-3 text-center"
-                            >
-                                퇴직 예정일
-                            </label>
-                            <input
-                                type="date"
-                                id="date"
-                                className="border-default-gray border-b px-3"
+                            <FormInputFormat
+                                label={"퇴직 예정일"}
+                                id={"expectedRetirementDate"}
+                                type={"date"}
                             />
                         </div>
                         <div className="grid grid-cols-[1fr_7fr]">
                             <label
-                                htmlFor=""
+                                htmlFor="reason"
                                 className="bg-default-gray py-15 text-center"
                             >
                                 사유
                             </label>
-                            <textarea className="resize-none p-3"></textarea>
+                            <textarea
+                                id="reason"
+                                className="resize-none p-3"
+                            ></textarea>
                         </div>
                     </section>
                     <section className="m-auto mt-10">

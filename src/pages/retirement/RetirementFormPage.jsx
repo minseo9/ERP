@@ -1,6 +1,8 @@
 import Title from "../../components/Title";
 import Button from "../../components/Button";
 
+import FormInputFormat from "../../components/input-format/FormInputFormat";
+
 const RetirementFormPage = () => {
     return (
         <div>
@@ -11,72 +13,22 @@ const RetirementFormPage = () => {
                 </section>
                 <section className="border-default-gray m-auto mt-15 grid w-2/3 border">
                     <div className="grid grid-cols-[1fr_3fr_1fr_3fr]">
-                        <label
-                            htmlFor="employeeNumber"
-                            className="bg-default-gray border-default-gray border-b py-3 text-center"
-                        >
-                            사원번호
-                        </label>
-                        <input
-                            type="text"
-                            id="employeeNumber"
-                            className="border-default-gray border-b px-3"
+                        <FormInputFormat
+                            label={"사원번호"}
+                            id={"employeeNumber"}
                         />
-                        <label
-                            htmlFor="department"
-                            className="bg-default-gray border-default-gray border-b py-3 text-center"
-                        >
-                            부서
-                        </label>
-                        <input
-                            type="text"
-                            id="department"
-                            className="border-default-gray border-b px-3"
+                        <FormInputFormat label={"부서"} id={"department"} />
+                        <FormInputFormat label={"이름"} id={"name"} />
+                        <FormInputFormat label={"직급"} id={"position"} />
+                        <FormInputFormat
+                            label={"입사일"}
+                            id={"joiningDate"}
+                            type={"date"}
                         />
-                        <label
-                            htmlFor="name"
-                            className="bg-default-gray border-default-gray border-b py-3 text-center"
-                        >
-                            이름
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            className="border-default-gray border-b px-3"
-                        />
-
-                        <label
-                            htmlFor="position"
-                            className="bg-default-gray border-default-gray border-b py-3 text-center"
-                        >
-                            직급
-                        </label>
-                        <input
-                            type="text"
-                            id="position"
-                            className="border-default-gray border-b px-3"
-                        />
-                        <label
-                            htmlFor="joiningDate"
-                            className="bg-default-gray border-default-gray border-b py-3 text-center"
-                        >
-                            입사일
-                        </label>
-                        <input
-                            type="date"
-                            id="joiningDate"
-                            className="border-default-gray border-b px-3"
-                        />
-                        <label
-                            htmlFor="expectedRetirementDate"
-                            className="bg-default-gray border-default-gray border-b py-3 text-center"
-                        >
-                            퇴직 예정일
-                        </label>
-                        <input
-                            type="date"
-                            id="expectedRetirementDate"
-                            className="border-default-gray border-b px-3"
+                        <FormInputFormat
+                            label={"퇴직 예정일"}
+                            id={"expectedRetirementDate"}
+                            type={"date"}
                         />
                     </div>
                     <div className="grid grid-cols-[1fr_7fr]">

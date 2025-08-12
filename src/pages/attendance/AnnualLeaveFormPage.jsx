@@ -1,7 +1,7 @@
 import Title from "../../components/Title";
 import Button from "../../components/Button";
 
-import TextInputFormat from "../../components/input-format/TextInputFormat";
+import FormInputFormat from "../../components/input-format/FormInputFormat";
 
 const AnnualLeaveFormPage = () => {
     const annualLeaveType = [
@@ -24,50 +24,10 @@ const AnnualLeaveFormPage = () => {
                 </section>
                 <section className="border-default-gray m-auto mt-15 grid w-2/3 border">
                     <div className="grid grid-cols-[1.5fr_3fr_1fr_4fr]">
-                        <label
-                            htmlFor="name"
-                            className="bg-default-gray border-default-gray border-b py-3 text-center"
-                        >
-                            이름
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            className="border-default-gray border-b px-3"
-                        />
-                        <label
-                            htmlFor="department"
-                            className="bg-default-gray border-default-gray border-b py-3 text-center"
-                        >
-                            부서
-                        </label>
-                        <input
-                            type="text"
-                            id="department"
-                            className="border-default-gray border-b px-3"
-                        />
-                        <label
-                            htmlFor="phone"
-                            className="bg-default-gray border-default-gray border-b py-3 text-center"
-                        >
-                            비상연락망
-                        </label>
-                        <input
-                            type="text"
-                            id="phone"
-                            className="border-default-gray border-b px-3"
-                        />
-                        <label
-                            htmlFor="position"
-                            className="bg-default-gray border-default-gray border-b py-3 text-center"
-                        >
-                            직급
-                        </label>
-                        <input
-                            type="text"
-                            id="position"
-                            className="border-default-gray border-b px-3"
-                        />
+                        <FormInputFormat label={"이름"} id={"name"} />
+                        <FormInputFormat label={"부서"} id={"department"} />
+                        <FormInputFormat label={"비상연락망"} id={"phone"} />
+                        <FormInputFormat label={"직급"} id={"position"} />
                     </div>
                     <div className="grid grid-cols-[1.5fr_3fr_1fr_4fr]">
                         <label

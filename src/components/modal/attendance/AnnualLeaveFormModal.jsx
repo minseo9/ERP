@@ -1,5 +1,6 @@
 import Button from "../../Button";
 import ModalCloseButton from "../../ModalCloseButton";
+import FormInputFormat from "../../input-format/FormInputFormat";
 import ChangeStatusModal from "../ChangeStatusModal";
 
 const AnnualLeaveFormModal = ({
@@ -30,61 +31,24 @@ const AnnualLeaveFormModal = ({
                     <h2>연차 신청서</h2>
                     <section className="border-default-gray mt-15 grid border">
                         <div className="grid grid-cols-[1.5fr_3fr_1fr_4fr]">
-                            <label
-                                htmlFor="name"
-                                className="bg-default-gray border-default-gray border-b py-3 text-center"
-                            >
-                                이름
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                className="border-default-gray border-b px-3"
+                            <FormInputFormat label={"이름"} id={"name"} />
+                            <FormInputFormat label={"부서"} id={"department"} />
+                            <FormInputFormat
+                                label={"비상연락망"}
+                                id={"phone"}
                             />
-                            <label
-                                htmlFor="department"
-                                className="bg-default-gray border-default-gray border-b py-3 text-center"
-                            >
-                                부서
-                            </label>
-                            <input
-                                type="text"
-                                id="department"
-                                className="border-default-gray border-b px-3"
-                            />
-                            <label
-                                htmlFor="phone"
-                                className="bg-default-gray border-default-gray border-b py-3 text-center"
-                            >
-                                비상연락망
-                            </label>
-                            <input
-                                type="text"
-                                id="phone"
-                                className="border-default-gray border-b px-3"
-                            />
-                            <label
-                                htmlFor="position"
-                                className="bg-default-gray border-default-gray border-b py-3 text-center"
-                            >
-                                직급
-                            </label>
-                            <input
-                                type="text"
-                                id="position"
-                                className="border-default-gray border-b px-3"
-                            />
+                            <FormInputFormat label={"직급"} id={"position"} />
                         </div>
                         <div className="grid grid-cols-[1.5fr_3fr_1fr_4fr]">
                             <label
-                                htmlFor="type"
+                                htmlFor="annualLeaveType"
                                 className="bg-default-gray border-default-gray border-b py-3 text-center"
                             >
                                 연차 종류
                             </label>
                             <select
-                                name=""
-                                id="type"
+                                name="annualLeaveType"
+                                id="annualLeaveType"
                                 className="border-default-gray border-b px-3"
                             >
                                 {annualLeaveType.map((data) => (
@@ -107,12 +71,15 @@ const AnnualLeaveFormModal = ({
                         </div>
                         <div className="grid h-[80px] grid-cols-[1.5fr_8fr]">
                             <label
-                                htmlFor=""
+                                htmlFor="reason"
                                 className="bg-default-gray border-default-gray border-b py-3 text-center"
                             >
                                 사유
                             </label>
-                            <textarea className="h-full resize-none p-2"></textarea>
+                            <textarea
+                                id="reason"
+                                className="h-full resize-none p-2"
+                            ></textarea>
                         </div>
                     </section>
                     <section className="m-auto mt-10">
