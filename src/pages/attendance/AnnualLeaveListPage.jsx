@@ -2,12 +2,13 @@ import { useState } from "react";
 import useShowData from "../../hooks/useShowData";
 
 import Title from "../../components/Title";
-import FormFormat from "../../components/input-format/FormFormat";
-import TextInputFormat from "../../components/input-format/TextInputFormat";
-import SelectFormat from "../../components/input-format/SelectFormat";
 import Button from "../../components/Button";
 import ShowTable from "../../components/table/ShowTable";
 import PageButton from "../../components/PageButton";
+
+import TextInputFormat from "../../components/input-format/TextInputFormat";
+import DateRangeInputFormat from "../../components/input-format/DateRangeInputFormat";
+import SelectFormat from "../../components/input-format/SelectFormat";
 
 import AnnualLeaveFormModal from "../../components/modal/attendance/AnnualLeaveFormModal";
 import ChangeStatusModal from "../../components/modal/ChangeStatusModal";
@@ -172,24 +173,17 @@ const AnnualLeaveListPage = () => {
             <Title />
             <section className="flex flex-col justify-center gap-3">
                 <section>
-                    <FormFormat label={"제출일"} htmlFor={"submitDate"}>
-                        <input
-                            type="date"
-                            id="submitDate"
-                            className="default-input mr-3 px-3"
-                        />
-                        -
-                        <input
-                            type="date"
-                            id="submitDate"
-                            className="default-input ml-3 px-3"
-                        />
-                    </FormFormat>
+                    <DateRangeInputFormat
+                        label={"제출일"}
+                        id={"submitDate"}
+                        leftStyle={"default-input mr-3 px-3"}
+                        rightStyle={"default-input ml-3 px-3"}
+                    />
                 </section>
                 <section className="flex items-center gap-4">
                     <TextInputFormat
                         label={"사원번호"}
-                        id={"number"}
+                        id={"employeeNumber"}
                         style={"default-input px-3"}
                     />
                     <TextInputFormat
@@ -199,14 +193,14 @@ const AnnualLeaveListPage = () => {
                     />
                     <SelectFormat
                         label={"연차 종류"}
-                        id={"type"}
-                        style={"default-input"}
+                        id={"annualLeaveType"}
+                        style={"default-input pl-1 "}
                         list={annualLeaveType}
                     />
                     <SelectFormat
                         label={"신청 상태"}
                         id={"state"}
-                        style={"default-input"}
+                        style={"default-input pl-1"}
                         list={stateList}
                     />
                     <Button text={"조회"} />

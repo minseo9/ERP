@@ -12,14 +12,14 @@ const RetirementFormPage = () => {
                 <section className="border-default-gray m-auto mt-15 grid w-2/3 border">
                     <div className="grid grid-cols-[1fr_3fr_1fr_3fr]">
                         <label
-                            htmlFor="id"
+                            htmlFor="employeeNumber"
                             className="bg-default-gray border-default-gray border-b py-3 text-center"
                         >
                             사원번호
                         </label>
                         <input
                             type="text"
-                            id="id"
+                            id="employeeNumber"
                             className="border-default-gray border-b px-3"
                         />
                         <label
@@ -57,36 +57,39 @@ const RetirementFormPage = () => {
                             className="border-default-gray border-b px-3"
                         />
                         <label
-                            htmlFor="date"
+                            htmlFor="joiningDate"
                             className="bg-default-gray border-default-gray border-b py-3 text-center"
                         >
                             입사일
                         </label>
                         <input
                             type="date"
-                            id="date"
+                            id="joiningDate"
                             className="border-default-gray border-b px-3"
                         />
                         <label
-                            htmlFor="date"
+                            htmlFor="expectedRetirementDate"
                             className="bg-default-gray border-default-gray border-b py-3 text-center"
                         >
                             퇴직 예정일
                         </label>
                         <input
                             type="date"
-                            id="date"
+                            id="expectedRetirementDate"
                             className="border-default-gray border-b px-3"
                         />
                     </div>
                     <div className="grid grid-cols-[1fr_7fr]">
                         <label
-                            htmlFor=""
+                            htmlFor="reason"
                             className="bg-default-gray py-15 text-center"
                         >
                             사유
                         </label>
-                        <textarea className="resize-none p-3"></textarea>
+                        <textarea
+                            id="reason"
+                            className="resize-none p-3"
+                        ></textarea>
                     </div>
                 </section>
                 <section className="m-auto mt-10 w-2/3">

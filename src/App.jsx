@@ -5,8 +5,9 @@ import "./App.css";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
 import MenuLabel from "./components/MenuLabel";
-
 import LoginPage from "./pages/LoginPage";
+
+import { mainMenuData } from "./data/mainMenuData";
 import { infoRoutesData } from "./routes/InfoRoutes";
 import { employeeRoutesData } from "./routes/EmployeeRoutes";
 import { attendanceRoutesDate } from "./routes/AttendanceRoutes";
@@ -23,8 +24,8 @@ function App() {
     // 현재 선택한 메뉴 정보
     const [menu, setMenu] = useState(
         savePage || {
-            category: "회사정보",
-            detail: "회사 기본 정보",
+            category: mainMenuData[0].category,
+            detail: mainMenuData[0].details[0].category,
         },
     );
     // mypage로 이동 전 마지막으로 접속해 있던 main 페이지

@@ -1,6 +1,8 @@
-import FormFormat from "../../components/input-format/FormFormat";
 import TextInputFormat from "../../components/input-format/TextInputFormat";
+import DateInputFormat from "../../components/input-format/DateInputFormat";
+import DateRangeInputFormat from "../../components/input-format/DateRangeInputFormat";
 import SelectFormat from "../../components/input-format/SelectFormat";
+import RadioInputFormat from "../../components/input-format/RadioInputFormat";
 import Button from "../../components/Button";
 
 import companyLogo from "../../assets/company-logo.png";
@@ -59,15 +61,12 @@ const ModifyMyInfoPage = () => {
                     style={"form-input h-[28px] w-[350px]"}
                     isFlex
                 />
-                <FormFormat label={"생년월일"} htmlFor={"birthday"}>
-                    <div className="mt-2 flex items-center">
-                        <input
-                            type="date"
-                            id="birthday"
-                            className="form-input-date"
-                        />
-                    </div>
-                </FormFormat>
+                <DateInputFormat
+                    label={"생년월일"}
+                    id={"birthday"}
+                    style={"form-input-date"}
+                    isFlex
+                />
                 <TextInputFormat
                     label={"주소"}
                     id={"address"}
@@ -80,29 +79,23 @@ const ModifyMyInfoPage = () => {
                     style={"form-input h-[28px] w-[350px]"}
                     isFlex
                 />
-                <FormFormat label={"성별"} htmlFor={null}>
-                    <div className="accent-main mt-2 flex w-[123px] items-center gap-2 text-sm">
-                        <label htmlFor="man">남자</label>
-                        <input
-                            type="radio"
-                            id="man"
-                            name="gender"
-                            className="mr-3"
-                        />
-                        <label htmlFor="woman">여자</label>
-                        <input type="radio" id="woman" name="gender" />
-                    </div>
-                </FormFormat>
-                <FormFormat label={"입사일"} htmlFor={"date"}>
-                    <div className="mt-2 flex items-center">
-                        <input
-                            type="date"
-                            id="date"
-                            className="form-input-date"
-                            readOnly
-                        />
-                    </div>
-                </FormFormat>
+                <RadioInputFormat title={"성별"}>
+                    <label htmlFor="man">남자</label>
+                    <input
+                        type="radio"
+                        id="man"
+                        name="gender"
+                        className="mr-3"
+                    />
+                    <label htmlFor="woman">여자</label>
+                    <input type="radio" id="woman" name="gender" />
+                </RadioInputFormat>
+                <DateInputFormat
+                    label={"입사일"}
+                    id={"joiningDate"}
+                    style={"form-input-date"}
+                    isFlex
+                />
                 <SelectFormat
                     label={"직급"}
                     id={"position"}
@@ -115,19 +108,17 @@ const ModifyMyInfoPage = () => {
                     style={"form-input-select"}
                     list={departmentList}
                 />
-                <FormFormat label={"상태"} htmlFor={null}>
-                    <div className="accent-main mt-2 flex w-[123px] items-center gap-2 text-sm">
-                        <label htmlFor="work">재직</label>
-                        <input
-                            type="radio"
-                            id="work"
-                            name="state"
-                            className="mr-3"
-                        />
-                        <label htmlFor="retirement">퇴직</label>
-                        <input type="radio" id="retirement" name="state" />
-                    </div>
-                </FormFormat>
+                <RadioInputFormat title={"상태"}>
+                    <label htmlFor="work">재직</label>
+                    <input
+                        type="radio"
+                        id="work"
+                        name="state"
+                        className="mr-3"
+                    />
+                    <label htmlFor="retirement">퇴직</label>
+                    <input type="radio" id="retirement" name="state" />
+                </RadioInputFormat>
             </section>
             <section className="mt-10 flex w-[900px] items-center justify-center gap-2">
                 <Button text="수정" />

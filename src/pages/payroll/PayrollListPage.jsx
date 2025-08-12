@@ -2,12 +2,13 @@ import { useState } from "react";
 import useShowData from "../../hooks/useShowData";
 
 import Title from "../../components/Title";
-import FormFormat from "../../components/input-format/FormFormat";
-import TextInputFormat from "../../components/input-format/TextInputFormat";
-import SelectFormat from "../../components/input-format/SelectFormat";
 import Button from "../../components/Button";
 import ShowTable from "../../components/table/ShowTable";
 import PageButton from "../../components/PageButton";
+
+import TextInputFormat from "../../components/input-format/TextInputFormat";
+import DateInputFormat from "../../components/input-format/DateInputFormat";
+import SelectFormat from "../../components/input-format/SelectFormat";
 
 const PayrollListPage = () => {
     const positionList = [
@@ -160,16 +161,15 @@ const PayrollListPage = () => {
     return (
         <div>
             <section className="flex items-center gap-4">
-                <FormFormat label={"귀속연월"} htmlFor={"month"}>
-                    <input
-                        type="month"
-                        id="month"
-                        className="default-input px-3"
-                    />
-                </FormFormat>
+                <DateInputFormat
+                    label={"조회기간"}
+                    id={"searchMonth"}
+                    type={"month"}
+                    style={"default-input px-3"}
+                />
                 <TextInputFormat
                     label={"사원번호"}
-                    id={"number"}
+                    id={"employeeNumber"}
                     style={"default-input px-3"}
                 />
                 <TextInputFormat

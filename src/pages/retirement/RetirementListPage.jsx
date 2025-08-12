@@ -2,12 +2,13 @@ import { useState } from "react";
 import useShowData from "../../hooks/useShowData";
 
 import Title from "../../components/Title";
-import FormFormat from "../../components/input-format/FormFormat";
-import TextInputFormat from "../../components/input-format/TextInputFormat";
-import SelectFormat from "../../components/input-format/SelectFormat";
 import Button from "../../components/Button";
 import ShowTable from "../../components/table/ShowTable";
 import PageButton from "../../components/PageButton";
+
+import TextInputFormat from "../../components/input-format/TextInputFormat";
+import DateRangeInputFormat from "../../components/input-format/DateRangeInputFormat";
+import SelectFormat from "../../components/input-format/SelectFormat";
 
 import RetirementFormModal from "../../components/modal/retirement/RetirementFormModal";
 import ChangeStatusModal from "../../components/modal/ChangeStatusModal";
@@ -161,37 +162,23 @@ const RetirementListPage = () => {
             <Title />
             <section className="flex flex-col gap-3">
                 <section className="flex gap-4">
-                    <FormFormat label={"제출일"} htmlFor={"submitDate"}>
-                        <input
-                            type="date"
-                            id="submitDate"
-                            className="default-input mr-3 px-3"
-                        />
-                        -
-                        <input
-                            type="date"
-                            id="submitDate"
-                            className="default-input ml-3 px-3"
-                        />
-                    </FormFormat>
-                    <FormFormat label={"퇴직 예정일"} htmlFor={"submitDate"}>
-                        <input
-                            type="date"
-                            id="submitDate"
-                            className="default-input mr-3 px-3"
-                        />
-                        -
-                        <input
-                            type="date"
-                            id="submitDate"
-                            className="default-input ml-3 px-3"
-                        />
-                    </FormFormat>
+                    <DateRangeInputFormat
+                        label={"제출일"}
+                        id={"submitDate"}
+                        leftStyle={"default-input mr-3 px-3"}
+                        rightStyle={"default-input ml-3 px-3"}
+                    />
+                    <DateRangeInputFormat
+                        label={"퇴직 예정일"}
+                        id={"expectedRetirementDate"}
+                        leftStyle={"default-input mr-3 px-3"}
+                        rightStyle={"default-input ml-3 px-3"}
+                    />
                 </section>
                 <section className="flex items-center gap-4">
                     <TextInputFormat
                         label={"사원번호"}
-                        id={"number"}
+                        id={"employeeNumber"}
                         style={"default-input px-3"}
                     />
                     <TextInputFormat

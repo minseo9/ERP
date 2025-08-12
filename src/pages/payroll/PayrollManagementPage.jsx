@@ -3,9 +3,10 @@ import { useState } from "react";
 import Title from "../../components/Title";
 import Button from "../../components/Button";
 import ShowTable from "../../components/table/ShowTable";
-import FormFormat from "../../components/input-format/FormFormat";
-import TextInputFormat from "../../components/input-format/TextInputFormat";
 import PageButton from "../../components/PageButton";
+
+import TextInputFormat from "../../components/input-format/TextInputFormat";
+import DateInputFormat from "../../components/input-format/DateInputFormat";
 
 import PreviousSalaryModal from "../../components/modal/payroll/PreviousSalaryModal";
 import PayrollAddModal from "../../components/modal/payroll/PayrollAddModal";
@@ -35,31 +36,25 @@ const PayrollManagementPage = () => {
             <Title />
             <section className="flex items-center gap-10">
                 <div className="flex gap-5">
-                    <FormFormat label={"귀속연월"} htmlFor={"month"}>
-                        <input type="month" className="default-input px-1" />
-                    </FormFormat>
+                    <DateInputFormat
+                        label={"조회기간"}
+                        id={"searchMonth"}
+                        type={"month"}
+                        style={"default-input px-3"}
+                    />
                     <Button text={"조회"} />
                 </div>
                 <div className="flex gap-4">
-                    <FormFormat label={"정산기간"} htmlFor={"payPeriod"}>
-                        <input
-                            type="text"
-                            readOnly
-                            className="mr-2 h-[25px] rounded-xl border border-gray-400 px-2 text-sm"
-                        />
-                        -
-                        <input
-                            type="text"
-                            readOnly
-                            className="ml-2 h-[25px] rounded-xl border border-gray-400 px-2 text-sm"
-                        />
-                    </FormFormat>
+                    <div className="flex items-center justify-center">
+                        <span className="mr-2 block text-sm">정산기간</span>
+                        <div className="default-input mr-2 w-[100px]"></div>-
+                        <div className="default-input ml-2 w-[100px]"></div>
+                        <div></div>
+                    </div>
                     <TextInputFormat
                         label={"급여 지급일"}
                         id={"payDay"}
-                        style={
-                            "border rounded-xl text-sm px-2 h-[25px] border-gray-400"
-                        }
+                        style={"default-input"}
                         isReadOnly
                     />
                 </div>

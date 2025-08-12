@@ -1,7 +1,7 @@
 import Title from "../../components/Title";
-import TextInputFormat from "../../components/input-format/TextInputFormat";
-import FormFormat from "../../components/input-format/FormFormat";
 import Button from "../../components/Button";
+
+import TextInputFormat from "../../components/input-format/TextInputFormat";
 
 const AnnualLeaveFormPage = () => {
     const annualLeaveType = [
@@ -71,14 +71,14 @@ const AnnualLeaveFormPage = () => {
                     </div>
                     <div className="grid grid-cols-[1.5fr_3fr_1fr_4fr]">
                         <label
-                            htmlFor="type"
+                            htmlFor="annualLeaveType"
                             className="bg-default-gray border-default-gray border-b py-3 text-center"
                         >
                             연차 종류
                         </label>
                         <select
-                            name=""
-                            id="type"
+                            name="annualLeaveType"
+                            id="annualLeaveType"
                             className="border-default-gray border-b px-3"
                         >
                             {annualLeaveType.map((data) => (
@@ -101,12 +101,15 @@ const AnnualLeaveFormPage = () => {
                     </div>
                     <div className="grid h-[80px] grid-cols-[1.5fr_8fr]">
                         <label
-                            htmlFor=""
+                            htmlFor="reason"
                             className="bg-default-gray border-default-gray border-b py-3 text-center"
                         >
                             사유
                         </label>
-                        <textarea className="h-full resize-none p-2"></textarea>
+                        <textarea
+                            id="reason"
+                            className="h-full resize-none p-2"
+                        ></textarea>
                     </div>
                 </section>
                 <section className="m-auto mt-10 w-2/3">

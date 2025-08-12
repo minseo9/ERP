@@ -1,13 +1,17 @@
 import { useState } from "react";
 import useShowData from "../../hooks/useShowData";
 
-import Title from "../../components/Title";
-import FormFormat from "../../components/input-format/FormFormat";
 import TextInputFormat from "../../components/input-format/TextInputFormat";
+import DateInputFormat from "../../components/input-format/DateInputFormat";
+import DateRangeInputFormat from "../../components/input-format/DateRangeInputFormat";
 import SelectFormat from "../../components/input-format/SelectFormat";
+import CheckBoxInputFormat from "../../components/input-format/CheckBoxInputFormat";
+
+import Title from "../../components/Title";
 import Button from "../../components/Button";
-import ShowTable from "../../components/table/ShowTable";
 import PageButton from "../../components/PageButton";
+import ShowTable from "../../components/table/ShowTable";
+
 import EmployeeEditFormModal from "../../components/modal/employee/EmployeeEditFormModal";
 
 const EmployeeListPage = () => {
@@ -196,25 +200,17 @@ const EmployeeListPage = () => {
             <Title />
             <section className="flex flex-col justify-center gap-3">
                 <section className="flex items-center gap-4">
-                    <FormFormat label={"입사일"} htmlFor={"date"}>
-                        <input
-                            type="date"
-                            id="date"
-                            className="default-input mr-3 px-3"
-                        />
-                        -
-                        <input
-                            type="date"
-                            className="default-input ml-3 px-3"
-                        />
-                    </FormFormat>
-                    <FormFormat label={"생년월일"} htmlFor={"birthday"}>
-                        <input
-                            type="date"
-                            id="birthday"
-                            className="default-input px-3"
-                        />
-                    </FormFormat>
+                    <DateRangeInputFormat
+                        label={"입사일"}
+                        id={"joiningDate"}
+                        leftStyle={"default-input mr-3 px-3"}
+                        rightStyle={"default-input ml-3 px-3"}
+                    />
+                    <DateInputFormat
+                        label={"생년월일"}
+                        id={"birthday"}
+                        style={"default-input px-3"}
+                    />
                     <SelectFormat
                         label={"부서"}
                         id={"department"}
@@ -227,18 +223,12 @@ const EmployeeListPage = () => {
                         style={"default-input pl-1"}
                         list={positionList}
                     />
-                    <FormFormat label={"재직 여부"} htmlFor={"state"}>
-                        <input
-                            type="checkbox"
-                            id="state"
-                            className="accent-main"
-                        />
-                    </FormFormat>
+                    <CheckBoxInputFormat label={"재직 여부"} id={"state"} />
                 </section>
                 <section className="flex items-center gap-4">
                     <TextInputFormat
                         label={"사원번호"}
-                        id={"number"}
+                        id={"employeeNumber"}
                         style={"default-input px-3"}
                     />
                     <TextInputFormat

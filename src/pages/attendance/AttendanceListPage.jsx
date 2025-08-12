@@ -2,12 +2,13 @@ import { useState } from "react";
 import useShowData from "../../hooks/useShowData";
 
 import Title from "../../components/Title";
-import FormFormat from "../../components/input-format/FormFormat";
-import TextInputFormat from "../../components/input-format/TextInputFormat";
-import SelectFormat from "../../components/input-format/SelectFormat";
 import Button from "../../components/Button";
 import ShowTable from "../../components/table/ShowTable";
 import PageButton from "../../components/PageButton";
+
+import TextInputFormat from "../../components/input-format/TextInputFormat";
+import DateRangeInputFormat from "../../components/input-format/DateRangeInputFormat";
+import SelectFormat from "../../components/input-format/SelectFormat";
 
 import AttendanceEditFormModal from "../../components/modal/attendance/AttendanceEditFormModal";
 
@@ -195,23 +196,17 @@ const AttendanceListPage = () => {
             <Title />
             <section className="flex w-full flex-col gap-3">
                 <section>
-                    <FormFormat label={"조회 기간"} htmlFor={"searchDate"}>
-                        <input
-                            type="date"
-                            id="searchDate"
-                            className="default-input mr-2 px-3"
-                        />
-                        -
-                        <input
-                            type="date"
-                            className="default-input ml-2 px-3"
-                        />
-                    </FormFormat>
+                    <DateRangeInputFormat
+                        label={"조회 기간"}
+                        id={"searchDate"}
+                        leftStyle={"default-input mr-2 px-3"}
+                        rightStyle={"default-input ml-2 px-3"}
+                    />
                 </section>
                 <section className="flex gap-4">
                     <TextInputFormat
                         label={"사원번호"}
-                        id={"number"}
+                        id={"employeeNumber"}
                         style={"default-input px-3"}
                     />
                     <TextInputFormat

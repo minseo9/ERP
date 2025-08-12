@@ -1,6 +1,8 @@
-import FormFormat from "../../input-format/FormFormat";
 import TextInputFormat from "../../input-format/TextInputFormat";
+import DateInputFormat from "../../input-format/DateInputFormat";
 import SelectFormat from "../../input-format/SelectFormat";
+import RadioInputFormat from "../../input-format/RadioInputFormat";
+
 import Button from "../../Button";
 import ModalCloseButton from "../../ModalCloseButton";
 
@@ -65,15 +67,12 @@ const EmployeeEditFormModal = ({ modalOpen, closeModal }) => {
                         style={"form-input py-1"}
                         isFlex
                     />
-                    <FormFormat label={"생년월일"} htmlFor={"birthday"}>
-                        <div className="mt-2 flex items-center">
-                            <input
-                                type="date"
-                                id="birthday"
-                                className="form-input-date"
-                            />
-                        </div>
-                    </FormFormat>
+                    <DateInputFormat
+                        label={"생년월일"}
+                        id={"birthday"}
+                        style={"form-input-date"}
+                        isFlex
+                    />
                     <TextInputFormat
                         label={"주소"}
                         id={"address"}
@@ -86,7 +85,7 @@ const EmployeeEditFormModal = ({ modalOpen, closeModal }) => {
                         style={"form-input py-1"}
                         isFlex
                     />
-                    <FormFormat label={"성별"} htmlFor={"name"}>
+                    <RadioInputFormat title={"성별"}>
                         <div className="accent-main mt-2 flex w-[123px] items-center gap-2 text-sm">
                             <label htmlFor="man">남자</label>
                             <input
@@ -98,17 +97,14 @@ const EmployeeEditFormModal = ({ modalOpen, closeModal }) => {
                             <label htmlFor="woman">여자</label>
                             <input type="radio" id="woman" name="gender" />
                         </div>
-                    </FormFormat>
-                    <FormFormat label={"입사일"} htmlFor={"name"}>
-                        <div className="mt-2 flex items-center">
-                            <input
-                                type="date"
-                                id="id"
-                                className="form-input-date"
-                                readOnly
-                            />
-                        </div>
-                    </FormFormat>
+                    </RadioInputFormat>
+                    <DateInputFormat
+                        label={"입사일"}
+                        id={"joiningDate"}
+                        style={"form-input-date"}
+                        isFlex
+                        isReadOnly
+                    />
                     <SelectFormat
                         label={"직급"}
                         id={"position"}
@@ -121,7 +117,7 @@ const EmployeeEditFormModal = ({ modalOpen, closeModal }) => {
                         style={"form-input-select"}
                         list={departmentList}
                     />
-                    <FormFormat label={"상태"} htmlFor={null}>
+                    <RadioInputFormat title={"상태"}>
                         <div className="accent-main mt-2 flex w-[123px] items-center gap-2 text-sm">
                             <label htmlFor="work">재직</label>
                             <input
@@ -133,7 +129,7 @@ const EmployeeEditFormModal = ({ modalOpen, closeModal }) => {
                             <label htmlFor="retirement">퇴직</label>
                             <input type="radio" id="retirement" name="state" />
                         </div>
-                    </FormFormat>
+                    </RadioInputFormat>
                 </section>
                 <section className="absolute right-5 bottom-5">
                     <Button text="수정" />
